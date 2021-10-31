@@ -4,8 +4,12 @@ import { CDataTable } from "@coreui/react";
 import Modal from "react-bootstrap/Modal";
 import Button from "@material-ui/core/Button";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 toast.configure();
 const CommissionListing = () => {
+  let history = useHistory();
   const [commission, setCommission] = React.useState();
   const user = auth.getCurrentUser();
   const [show, setShow] = useState(false);
@@ -85,28 +89,26 @@ const CommissionListing = () => {
   ];
 
   return (
+    <div className="global-container bg-fixed" style={{backgroundAttachment:"fixed"}}>
+    <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+    </div>
     <div className="container">
-      <Button
-        className="mb-5"
-        variant="contained"
-        color="primary"
+      <button
+        className="button"
         onClick={() => handleShow(balance)}
       >
         {" "}
         Generate Balance
-      </Button>
+      </button>
+      <br />
       <h5 className="mb-5">Unpaid Total Balance: {balance}</h5>
-
-      <h5 className="mb-5">Showing Balance List</h5>
       <CDataTable
         items={arr[1]}
         fields={fields}
         columnFilter
         tableFilter
-        footer
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
       />
@@ -166,12 +168,13 @@ const CommissionListing = () => {
             <br />
 
             <Modal.Footer>
-              <Button variant="contained" color="primary" onClick={handleClose}>
+              <Button variant="contained" color="primary" className="button" onClick={handleClose}>
                 Close
               </Button>
               <Button
                 variant="contained"
                 color="primary"
+                className="button"
                 onClick={handleSubmit}
               >
                 Save Changes
@@ -251,6 +254,7 @@ const CommissionListing = () => {
           </Modal>
         </>
       )}
+      </div>
     </div>
   );
 };

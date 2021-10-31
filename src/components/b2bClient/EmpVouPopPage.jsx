@@ -5,10 +5,14 @@ import * as autherize from "../../services/authService";
 import { toast } from "react-toastify";
 import { PaystackButton } from "react-paystack";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 toast.configure();
 
 const EmployeeVoucherPopPage = () => {
+  let history = useHistory();
 
   const [quantity, setQuantity] = React.useState();
   const [amount, setAmount] = React.useState(null);
@@ -223,6 +227,7 @@ const EmployeeVoucherPopPage = () => {
   const componentProps = {
     ...config,
     text: "Checkout",
+    className:"button button-b",
     onSuccess: (email) => handlePaystackSuccessAction(email),
     onClose: handlePaystackCloseAction,
   };
@@ -247,6 +252,10 @@ const EmployeeVoucherPopPage = () => {
     }
   };
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <div className="container">
       <h4>Employee Voucher Pop Page for B2B Client</h4>
       <br />
@@ -286,9 +295,9 @@ const EmployeeVoucherPopPage = () => {
 
       </div>
       <div>Double click to calculate amount</div>
-      <Button variant="contained" color="primary" onClick={calAmount}>
+      <button className="button button-b" onClick={calAmount}>
         Calculate Amount
-      </Button>
+      </button>
       <br />
       <br />
       {amount && (
@@ -303,6 +312,7 @@ const EmployeeVoucherPopPage = () => {
       )}
 
       <PaystackButton {...componentProps} />
+    </div>
     </div>
   );
 };

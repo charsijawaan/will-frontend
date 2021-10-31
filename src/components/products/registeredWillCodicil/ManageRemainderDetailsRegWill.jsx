@@ -5,6 +5,9 @@ import ScrollToMount from "./../willcreation/ScrollToMount";
 import FormContainer from "./../willcreation/FormContainer";
 import { saveRemainderDetails, createForm, removeLatestWillFromLocalStorage } from "../../../actions/formActions";
 
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 function parseURLParams(url) {
@@ -81,15 +84,19 @@ const ManageRemainderDetailsRegWill = ({ history }) => {
     }, []);
 
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <FormContainer>
       <ScrollToMount />
 
-      <h3>Step 10: Remainder of the Estate</h3>
+      <h4>Step 10: Remainder of the Estate</h4>
       <Form.Label>
         The person that should inherit the estate after specific gifts had been
         distributed
       </Form.Label>
-      <Form noValidate validated={validated} onSubmit={submitHandler}>
+      <Form className="l-form" noValidate validated={validated} onSubmit={submitHandler}>
         <Form.Group controlId="distribute">
           <Form.Label>Distribute equally to </Form.Label>
           <Form.Control
@@ -164,23 +171,21 @@ const ManageRemainderDetailsRegWill = ({ history }) => {
             </Form.Group>
           </>
         )}
-          <Button
-            className="mt-5 mb-5 mr-5"
-            variant="contained"
-            color="primary"
+          <button className="button"
             onClick={() => {
               window.location = "/managewill/distributionregwill?will_id=" + parseURLParams(window.location.href).will_id[0];
             }}
           >
           Back
-        </Button>
-        <Button type="submit" variant="primary">
+        </button>
+        <button className="button" type="submit" variant="primary">
           Update & Continue
-        </Button>
+        </button>
 
        
       </Form>
     </FormContainer>
+    </div>
   );
 };
 

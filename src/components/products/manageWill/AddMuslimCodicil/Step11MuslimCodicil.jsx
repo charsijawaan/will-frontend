@@ -29,9 +29,9 @@ const Step11MuslimCodicil = ({
 
   return (
     <FormContainer>
-      <h3>Step 11: Other Matters</h3>
+      <h4>Step 11: Other Matters</h4>
 
-      <Form>
+      <Form  className="l-form">
         <Form.Group controlId="transferBeneficiary">
           <Form.Label>
             Transfer if a Beneficiary does not survive after 60 days{" "}
@@ -160,21 +160,22 @@ const Step11MuslimCodicil = ({
           </Form.Control>
         </Form.Group>
       </Form>
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
-      <button className="btn btn-primary" onClick={Continue}>
+      <button className="button" onClick={Continue}>
         Next
       </button>
       <br></br>
       <button
-        className="btn btn-primary"
+        className="button"
         onClick={(e) => {
           updateAndClose(e);
         }}
       >
         Update & Close
       </button>
+      <br />
     </FormContainer>
   );
 };

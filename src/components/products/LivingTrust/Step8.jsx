@@ -14,11 +14,11 @@ const Step8 = ({ nextStep, prevStep, handleChange, values }) => {
     }
 
     return (
-        <div style={{padding: 30}}>
-            <h1>Step 8</h1>
-            <h1>Subtrust</h1>
+        <div className="container">
+            <h4>Step 8</h4>
+            <h5>Subtrust</h5>
 
-            <Form>
+            <Form className="l-form">
 
                 {/* Do you want to create Subtrust for Beneficiaries that are young or cannot handle the gift  */}
                 <Form.Group>
@@ -46,8 +46,9 @@ const Step8 = ({ nextStep, prevStep, handleChange, values }) => {
 
             </Form>
 
-            <button className="btn btn-primary" onClick={Previous} >Prev</button>
-            <button className="btn btn-primary ml-4" onClick={Continue}>Next</button>
+            <button className="button" onClick={Previous} >Prev</button>
+            <button className="button" onClick={Continue}>Next</button>
+            <br />
         </div>
     )
 }

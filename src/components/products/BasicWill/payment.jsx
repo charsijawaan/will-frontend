@@ -156,15 +156,16 @@ const Checkout = () => {
   };
   return (
     <div className="container">
-      <div>CheckOut Page</div>
+      <h4>CheckOut Page</h4>
 
-      <div className="row">
-        <div className="col-md-6">
+      <div >
+        <div>
           <label>Enter promotion Code</label>
         </div>
-        <div classname="col">
+        <div>
           <input
             name="promotionCode"
+            className="form-control"
             onChange={(e) => {
               setCode(e.target.value);
             }}
@@ -172,7 +173,7 @@ const Checkout = () => {
         </div>
       </div>
       <div>
-        <Button onClick={calculateAmount}>Checkout</Button>
+        <button className="button" onClick={calculateAmount}>Checkout</button>
       </div>
       {show && (
         <div>

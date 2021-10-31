@@ -6,6 +6,9 @@ import WillOwnerDetails from "./willowner";
 import ExecutoerDetails from "./executoerDetails";
 import AdditionalInfo from "./AddInfo";
 import Checkout from "./payment";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 const steps = [
   { id: "requester" },
@@ -54,6 +57,7 @@ const defaultData = {
 };
 
 const MultiStepForm = ({ images, user }) => {
+  let history = useHistory();
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({ initialStep: 0, steps });
   const { id } = step;
@@ -62,15 +66,45 @@ const MultiStepForm = ({ images, user }) => {
 
   switch (id) {
     case "requester":
-      return <ReqDetails {...props} user={user} />;
+      return (
+        <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+        <div className="back-button">
+          <Link onClick={history.goBack}><FaArrowLeft /></Link>
+        </div><ReqDetails {...props} user={user} />
+        </div>
+        );
     case "will":
-      return <WillOwnerDetails {...props} />;
+      return (
+        <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+        <div className="back-button">
+          <Link onClick={history.goBack}><FaArrowLeft /></Link>
+        </div><WillOwnerDetails {...props} />
+        </div>
+        );
     case "Executor":
-    return <ExecutoerDetails {...props} />;
+    return (
+      <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div><ExecutoerDetails {...props} />
+      </div>
+      );
     case "additional":
-      return <AdditionalInfo {...props} user={user} />;
+      return (
+        <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+        <div className="back-button">
+          <Link onClick={history.goBack}><FaArrowLeft /></Link>
+        </div><AdditionalInfo {...props} user={user} />
+        </div>
+        );
     case "review":
-      return <Checkout {...props} />;
+      return (
+        <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+        <div className="back-button">
+          <Link onClick={history.goBack}><FaArrowLeft /></Link>
+        </div><Checkout {...props} />
+        </div>
+        );
 
     default:
       return null;

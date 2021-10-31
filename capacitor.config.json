@@ -1,0 +1,6 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "Will Creator",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}

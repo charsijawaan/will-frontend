@@ -35,8 +35,8 @@ const Step9MuslimCodicil = ({
         Only ONE-THIRD of the total asset can be distributed for Charitable
         Giving and Distributions.
       </Form.Label>
-      <h3>Step 9: Distribution Details</h3>
-      <Form>
+      <h4>Step 9: Distribution Details</h4>
+      <Form  className="l-form">
         {[...Array(values.step7AssetDetails?.length)].map((e, i) => (
           <div key={i + 1}>
             <h5>
@@ -158,10 +158,8 @@ const Step9MuslimCodicil = ({
                 </div>
               )
             )}
-            <Button
-              className="mr-3"
-              color="primary"
-              variant="contained"
+            <button
+              className="button"
               disabled={values.step7AssetDetails[i].beneficiaries.length === 1}
               onClick={(e) => {
                 e.preventDefault();
@@ -170,11 +168,10 @@ const Step9MuslimCodicil = ({
               }}
             >
               Delete <RemoveIcon />
-            </Button>
+            </button>
 
-            <Button
-              variant="contained"
-              color="primary"
+            <button
+              className="button"
               onClick={(e) => {
                 e.preventDefault();
                 values.step7AssetDetails[i].beneficiaries.push({
@@ -188,7 +185,7 @@ const Step9MuslimCodicil = ({
               }}
             >
               Add More <AddIcon />
-            </Button>
+            </button>
 
             <hr
               style={{
@@ -200,21 +197,22 @@ const Step9MuslimCodicil = ({
           </div>
         ))}
       </Form>
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
-      <button className="btn btn-primary" onClick={Continue}>
+      <button className="button" onClick={Continue}>
         Next
       </button>
       <br></br>
       <button
-        className="btn btn-primary"
+        className="button"
         onClick={(e) => {
           updateAndClose(e);
         }}
       >
         Update & Close
       </button>
+      <br />
     </FormContainer>
   );
 };

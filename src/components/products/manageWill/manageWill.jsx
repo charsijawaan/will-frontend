@@ -3,6 +3,8 @@ import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Popup from "./popup";
+import { FaArrowLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default class ManageWill extends React.Component {
   constructor(props) {
@@ -17,6 +19,7 @@ export default class ManageWill extends React.Component {
       registeredWills: [],
     };
   }
+  
 
   componentDidMount() {
     axios
@@ -55,12 +58,18 @@ export default class ManageWill extends React.Component {
       });
   }
 
+
   render() {
     return (
-      <div>
-        <h3>Will's Table</h3>
+      
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}> 
+    <div className="back-button">
+      <Link  to="/individualuser/home"><FaArrowLeft /></Link>
+    </div>
+      <div  className="container">
+        <h4>Will's Table</h4>
 
-        <table className="table">
+        <table className="table table-wills">
           <tbody>
             {/* Header */}
             <tr>
@@ -110,16 +119,16 @@ export default class ManageWill extends React.Component {
                   <td>
                     <a
                       style={{ backgroundColor: "#333" }}
-                      className="btn btn-primary"
+                      className="button button-b"
                       // href={"/managewill/viewwillpdf?will_id=" + will._id}
                     >
-                      Download PDF (Currently disabled)
+                      Download PDF (Disabled)
                     </a>
                   </td>
                   {will._id === this.state.activeWillID && (
                     <td>
                       <button
-                        className="btn btn-primary"
+                        className="button button-b"
                         onClick={(e) => {
                           this.props.history.push({
                             pathname: "/managewill/addcodicil",
@@ -138,7 +147,7 @@ export default class ManageWill extends React.Component {
                   )}
                   <td>
                     <a
-                      className="btn btn-primary"
+                      className="button button-b"
                       href={"/managewill/viewcodicils?will_id=" + will._id}
                     >
                       View Codicils
@@ -147,7 +156,7 @@ export default class ManageWill extends React.Component {
                   {will._id === this.state.activeWillID && (
                     <td>
                       <a
-                        className="btn btn-primary"
+                        className="button button-b"
                         href={"/managewill/adddocuments?will_id=" + will._id}
                       >
                         Add Document
@@ -161,7 +170,7 @@ export default class ManageWill extends React.Component {
                   )}
                   <td>
                     <a
-                      className="btn btn-primary"
+                      className="button button-b"
                       href={"/managewill/viewdocuments?will_id=" + will._id}
                     >
                       View Documents
@@ -170,7 +179,7 @@ export default class ManageWill extends React.Component {
                   {will._id === this.state.activeWillID && (
                     <td>
                       <a
-                        className="btn btn-primary"
+                        className="button button-b"
                         href={"/managewill/adddeedofgift?will_id=" + will._id}
                       >
                         Add Deed of Gift
@@ -184,7 +193,7 @@ export default class ManageWill extends React.Component {
                   )}
                   <td>
                     <a
-                      className="btn btn-primary"
+                      className="button button-b"
                       href={"/managewill/viewdeedofgift?will_id=" + will._id}
                     >
                       View Deed of Gift
@@ -193,7 +202,7 @@ export default class ManageWill extends React.Component {
                   {will._id === this.state.activeWillID && (
                     <td>
                       <a
-                        className="btn btn-primary"
+                        className="button button-b"
                         href={"/managewill/addlivingtrust?will_id=" + will._id}
                       >
                         Add Living Trust
@@ -213,7 +222,7 @@ export default class ManageWill extends React.Component {
 
                   <td>
                     <a
-                      className="btn btn-primary"
+                      className="button button-b"
                       href={"/managewill/viewlivingtrust?will_id=" + will._id}
                     >
                       View Living Trust
@@ -225,7 +234,7 @@ export default class ManageWill extends React.Component {
           </tbody>
         </table>
 
-        <h3 style={{ marginTop: 150 }}>Registered Will's Table</h3>
+        <h4 style={{ marginTop: 150 }}>Registered Will's Table</h4>
         <table className="table">
           <tbody>
             {/* Header */}
@@ -253,7 +262,7 @@ export default class ManageWill extends React.Component {
                   <td>{will._id}</td>
                   <td>
                     <a
-                      className="btn btn-primary"
+                      className="button button-b"
                       href={process.env.REACT_APP_API_URL + "/" + will.willPDF}
                     >
                       View Will
@@ -262,7 +271,7 @@ export default class ManageWill extends React.Component {
                   {will._id === this.state.activeWillID && (
                     <td>
                       <a
-                        className="btn btn-primary"
+                        className="button button-b"
                         href={
                           "/managewill/addcodicilregwill?will_id=" + will._id
                         }
@@ -278,7 +287,7 @@ export default class ManageWill extends React.Component {
                   )}
                   <td>
                     <a
-                      className="btn btn-primary"
+                      className="button button-b"
                       href={"/managewill/viewcodicils?will_id=" + will._id}
                     >
                       View Codicils
@@ -287,7 +296,7 @@ export default class ManageWill extends React.Component {
                   {will._id === this.state.activeWillID && (
                     <td>
                       <a
-                        className="btn btn-primary"
+                        className="button button-b"
                         href={"/managewill/adddocuments?will_id=" + will._id}
                       >
                         Add Document
@@ -301,7 +310,7 @@ export default class ManageWill extends React.Component {
                   )}
                   <td>
                     <a
-                      className="btn btn-primary"
+                      className="button button-b"
                       href={"/managewill/viewdocuments?will_id=" + will._id}
                     >
                       View Documents
@@ -312,6 +321,7 @@ export default class ManageWill extends React.Component {
             })}
           </tbody>
         </table>
+      </div>
       </div>
     );
   }

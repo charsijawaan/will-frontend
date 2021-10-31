@@ -26,7 +26,7 @@ const Step8Muslim = ({
   return (
     <FormContainer>
       <h4 className="mb-5"> Step 8</h4>
-      <Form>
+      <Form className="l-form">
         <Form.Group>
           <Form.Label>
             Do you wish to leave gift for someone outside your family (Please
@@ -216,10 +216,8 @@ const Step8Muslim = ({
           </>
         )}
 
-        <Button
-          className="mr-3"
-          color="primary"
-          variant="contained"
+        <button
+          className="button"
           disabled={values.step8ExecutorDetails.length === 1}
           onClick={(e) => {
             e.preventDefault();
@@ -230,11 +228,10 @@ const Step8Muslim = ({
         >
           Delete
           <RemoveIcon />
-        </Button>
+        </button>
 
-        <Button
-          variant="contained"
-          color="primary"
+        <button
+          className="button"
           onClick={(e) => {
             e.preventDefault();
             var temp = [...values.step8ExecutorDetails];
@@ -254,18 +251,19 @@ const Step8Muslim = ({
         >
           Add More
           <AddIcon />
-        </Button>
+        </button>
 
         <br></br>
         <br></br>
 
-        <button className="btn btn-primary" onClick={Previous}>
+        <button className="button" onClick={Previous}>
           Prev
         </button>
-        <button className="btn btn-primary" onClick={Continue}>
+        <button className="button" onClick={Continue}>
           Next
         </button>
       </Form>
+      <br />
     </FormContainer>
   );
 };

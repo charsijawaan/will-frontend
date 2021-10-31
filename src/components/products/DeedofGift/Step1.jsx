@@ -17,10 +17,10 @@ const Step1 = ({ nextStep, prevStep, handleChange, values }) => {
 
 
     return (
-        <div style={{padding: 30}}>
-            <h1>Step 1</h1>
+        <div className="container">
+            <h4>Step 1</h4>
             
-            <Form>
+            <Form className="l-form">
 
                 {/* Country */}
                 <Form.Group>
@@ -305,7 +305,7 @@ const Step1 = ({ nextStep, prevStep, handleChange, values }) => {
 
             </Form>
 
-            <button className="btn btn-primary" onClick={Continue}>Next</button>
+            <button className="button" onClick={Continue}>Next</button>
         </div>
     )
 }

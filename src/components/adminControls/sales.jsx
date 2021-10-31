@@ -1,6 +1,9 @@
 import React from "react";
 import * as auth from "../../services/adminService";
 import { CDataTable } from "@coreui/react";
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
 
 const Sales = () => {
   const [sales, setSales] = React.useState();
@@ -31,18 +34,25 @@ const Sales = () => {
     { key: "transactionID", label: "Tran" },
   ];
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+    <div className="back-button">
+      <Link to="/adminhome"><FaArrowLeft /></Link>
+    </div>
     <div className="container">
-      <h5 className="mb-5">Showing Sales </h5>
+    <br />
+    <h4>Sales</h4>
+    <br />
       <CDataTable
         items={arr[1]}
         fields={fields}
         columnFilter
         tableFilter
-        itemsPerPage={6}
-        hover
+        responsive
+        itemsPerPage={10}
         sorter
         pagination
       />
+      </div>
     </div>
   );
 };

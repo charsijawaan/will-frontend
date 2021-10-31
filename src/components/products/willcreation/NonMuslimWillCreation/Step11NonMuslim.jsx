@@ -20,9 +20,9 @@ const Step11NonMuslim = ({
     };
     return (
         <FormContainer>
-            <h3>Step 11: Pets</h3>
+            <h4>Step 11: Pets</h4>
 
-            <Form>
+            <Form className="l-form">
                 {/* <Form.Group controlId="giftToPet">
           <Form.Label>Any gift to Pet?</Form.Label>
           <Form.Control
@@ -128,12 +128,13 @@ const Step11NonMuslim = ({
                 )}
             </Form>
 
-            <button className="btn btn-primary" onClick={Previous}>
+            <button className="button" onClick={Previous}>
                 Prev
             </button>
-            <button className="btn btn-primary" onClick={Continue}>
+            <button className="button" onClick={Continue}>
                 Next
             </button>
+            <br />
         </FormContainer>
     );
 };

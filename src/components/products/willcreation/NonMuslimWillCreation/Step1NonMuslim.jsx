@@ -21,9 +21,9 @@ const Step1NonMuslim = ({
   };
   return (
     <FormContainer>
-      <h3>Step 1: Personal Details of Person Filling the form</h3>
+      <h4>Step 1: Personal Details of Person Filling the form</h4>
       <ScrollToMount />
-      <Form>
+      <Form className="l-form">
         <Form.Group controlId="prefix">
           <Form.Label>Prefix</Form.Label>
           <Form.Control
@@ -184,9 +184,10 @@ const Step1NonMuslim = ({
           </Form.Control>
         </Form.Group>
 
-        <button className="btn btn-primary" onClick={Continue}>
+        <button className="button" onClick={Continue}>
           Next
         </button>
+        <br />
       </Form>
     </FormContainer>
   );

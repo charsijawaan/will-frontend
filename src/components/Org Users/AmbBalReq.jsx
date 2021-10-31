@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import * as auth from "../../services/adminService";
 import { CButton, CDataTable , CCollapse, CCardBody} from "@coreui/react";
-
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {toast} from 'react-toastify'
 import { Modal, Button , Row, Col} from "react-bootstrap";
 toast.configure()
 
 const AmbBalanceRequests = () => {
+  let history = useHistory();
   const [list, setList] = useState();
   const [show, setShow] = useState();
   const [item, setItem] = useState();
@@ -82,19 +84,20 @@ const AmbBalanceRequests = () => {
     }
   };
   return (
-    <>
+    <>   
+    <div className="global-container">
+    <div className="back-button">
+      <Link onClick={history.goBack}><FaArrowLeft /></Link>
+    </div>
     <div className="container">
-    <h5>Showing list of Will Ambassadors Balance Requests</h5>
+    <h4>Will Ambassadors Balance Requests</h4>
      
       <CDataTable
         items={filter}
         fields={fields}
         columnFilter
         tableFilter
-        footer
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -105,7 +108,7 @@ const AmbBalanceRequests = () => {
                 {item.reqStatus !== "Paid" &&
                   <CButton
                   color="primary"
-                  variant="outline"
+                  className="button button-b"
                   shape="square"
                   size="sm"
                   onClick={() => {
@@ -124,7 +127,7 @@ const AmbBalanceRequests = () => {
               <td className="py-2">
                 <CButton
                   color="primary"
-                  variant="outline"
+                  className="button button-b"
                   shape="square"
                   size="sm"
                   onClick={() => {
@@ -198,6 +201,7 @@ const AmbBalanceRequests = () => {
         </Modal>
       </>
     )}
+    </div>
     </>
   );
 };

@@ -4,6 +4,9 @@ import auth from "../../services/adminService";
 import Form from "react-bootstrap/Form";
 import{Row, Col, Container} from 'react-bootstrap'
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
 toast.configure();
 
 const EditDiscount = ({match}) => {
@@ -62,16 +65,16 @@ const EditDiscount = ({match}) => {
          }
       }
      
-      return (
+      return (    
+      <div className="global-container bg-fixed" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link to="/admin/setup-discount"><FaArrowLeft /></Link>
+      </div>
         <Container>
-          <h5 className="mb-5">Edit Discount</h5>
-          <Form>
-          <Row>
-        <Col md={6}>
+          <h4 className="mb-5">Edit Discount</h4>
+          <Form className="l-form">
           <Form.Label>Type</Form.Label>
-        </Col>
-        <Col>
-          <select selected={filter[0].type} onChange={(e)=>{
+          <select className="login__input form-control" selected={filter[0].type} onChange={(e)=>{
             setType(e.target.value)
           }}>
           
@@ -86,87 +89,69 @@ const EditDiscount = ({match}) => {
               Organisation User B2B Discount
             </option>
           </select>
-        </Col>
-      </Row>
       {filter[0].type==="Employee Voucher" && (
         <div>
-          <Row>
-            <Col md={6}>
               <Form.Label>From No Quantity</Form.Label>
-            </Col>
-
             <input
               name="fromNoQty"
+               className="login__input form-control"
               defaultValue={filter[0].fromNoQty}
               onChange={(e) => {
                 setfromNoQty(e.target.value);
               }}
             />
-          </Row>
           <br />
-          <div className="row">
-            <div className="col-md-6">
               <label>To No Quantity</label>
-            </div>
 
             <input
-              name="toNoQty"
+              name="toNoQty" 
+              className="login__input form-control"
               defaultValue={filter[0].toNoQty}
               onChange={(e) => {
                 settoNoQty(e.target.value);
               }}
             />
-          </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
               <label>Amount</label>
-            </div>
-
             <input
-              name="amount"
+              name="amount" 
+              className="login__input form-control"
               defaultValue={filter[0].amount}
               onChange={(e) => {
                 setAmount(e.target.value);
               }}
             />
-          </div>
         </div>
       )}
       {filter[0].type!=="Employee Voucher" && (
          <>
-         <div className="row">
-           <div className="col-md-6">
              <label>Discount Percentage</label>
-           </div>
            <input
-             type="number"
+             type="number" 
+             className="login__input form-control"
              defaultValue={filter[0].discountPercentage}
              onChange={(e) => {
                setDisPercentage(e.target.value);
              }}
            />
-         </div>
          <br />
          <br />
-         <div className="row">
-           <div className="col-md-6">
              <label>Commission Percentage</label>
-           </div>
            <input
              type="number"
+              className="login__input form-control"
              defaultValue={filter[0].commissionPercentage}
              onChange={(e) => {
                setComPercentage(e.target.value);
              }}
            />
-         </div>
        </>
       )}
       <br />
              </Form>
-             <Button variant="contained" color="primary" onClick={handleUpdate}>Update Discount</Button>
+             <button  className="button button-b" onClick={handleUpdate}>Update Discount</button>
         </Container>
+        </div>
       );
 };
 

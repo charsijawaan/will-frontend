@@ -6,6 +6,8 @@ import Step4 from './Step4';
 import Step5 from './Step5';
 import Step6 from './Step6';
 import Step7 from './Step7';
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 
 export default class DeedofGift extends Component {
@@ -122,32 +124,46 @@ export default class DeedofGift extends Component {
         switch (step) {
             case 1: 
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+                    <div className="back-button">
+                      <Link to="/individualuser/home"><FaArrowLeft /></Link>
+                    </div>
                     <Step1 nextStep={this.nextStep} prevStep={this.prevStep} handleChange={this.handleChange} values={values} />
+                    </div>
                 )
             case 2: 
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step2 nextStep={this.nextStep} prevStep={this.prevStep} handleChange={this.handleChange} values={values} />
+                    </div>
                 )
             case 3:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step3 nextStep={this.nextStep} prevStep={this.prevStep} handleChange={this.handleChange} values={values} />
+                    </div>
                 )
             case 4:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step4 nextStep={this.nextStep} prevStep={this.prevStep} handleChange={this.handleChange} changeState={this.changeState} onFileChange={this.onFileChange} values={values} />
+                    </div>
                 )    
             case 5:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step5 nextStep={this.nextStep} prevStep={this.prevStep} handleChange={this.handleChange} changeState={this.changeState} values={values} />
-                )
+                    </div>)
             case 6:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step6 nextStep={this.nextStep} prevStep={this.prevStep} handleChange={this.handleChange} changeState={this.changeState} values={values} />
-                )
+                    </div> )
             case 7:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step7 nextStep={this.nextStep} prevStep={this.prevStep} handleChange={this.handleChange} changeState={this.changeState} onFileChange={this.onFileChange} values={values} />
-                )                             
+                    </div>)                             
             default: 
                // do nothing
         }

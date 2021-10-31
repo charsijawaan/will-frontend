@@ -9,7 +9,9 @@ import { v4 as uuidv4 } from "uuid";
 import { makeStyles } from "@material-ui/core/styles";
 import FormContainer from "./../willcreation/FormContainer";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 function parseURLParams(url) {
     var queryStart = url.indexOf("?") + 1,
@@ -43,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ManageWivesDetailsRegWill = () => {
+  let history = useHistory();
 
   const dispatch = useDispatch();
   const form = useSelector((state) => state.form);
@@ -104,6 +107,10 @@ const ManageWivesDetailsRegWill = () => {
 }, []);
 
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <FormContainer>
       <h4 className="mb-5"> Step3: Wives</h4>
 
@@ -118,7 +125,7 @@ const ManageWivesDetailsRegWill = () => {
         distribute your estate to your other wives or mother of your children
       </Form.Label>
 
-      <Form className={classes.root} onSubmit={handleSubmit}>
+      <Form className="l-form" onSubmit={handleSubmit}>
         {inputFields.map((inputField) => (
           <div key={inputField.id}>
             <Form.Group controlId="name">
@@ -163,47 +170,42 @@ const ManageWivesDetailsRegWill = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Button
-              className="mr-3"
-              color="primary"
-              variant="contained"
+            <button
+              className="button"
               disabled={inputFields.length === 1}
               onClick={() => handleRemoveFields(inputField.id)}
             >
               Delete <RemoveIcon />
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
+            </button>
+            <button
+              className="button"
               onClick={handleAddFields}
             >
               Add More <AddIcon />
-            </Button>
+            </button>
           </div>
         ))}
-        <Button
-          className="mt-5 mb-5 mr-5"
-          variant="contained"
-          color="primary"
+        <button
+          className="button"
           onClick={() => {
             window.location = "/managewill/addcodicilregwill?will_id=" + parseURLParams(window.location.href).will_id[0]
           }}
         >
           Back
-        </Button>
-        <Button
-          className="mt-5 mb-5"
-          variant="contained"
-          color="primary"
+        </button>
+        <button
+          className="button"
           type="submit"
           onClick={handleSubmit}
         >
           Update & Continue
-        </Button>
+        </button>
 
         
       </Form>
     </FormContainer>
+    <br />
+    </div>
   );
 };
 

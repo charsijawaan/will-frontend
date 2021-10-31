@@ -21,9 +21,9 @@ const Step13Muslim = ({
 
   return (
     <FormContainer>
-      <h3>Step 13: Burial Arrangements</h3>
+      <h4>Step 13: Burial Arrangements</h4>
 
-      <Form>
+      <Form className="l-form"> 
         <Form.Group controlId="description">
           <Form.Label>Description</Form.Label>
           <Form.Control
@@ -34,12 +34,13 @@ const Step13Muslim = ({
           ></Form.Control>
         </Form.Group>
       </Form>
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
-      <button className="btn btn-primary" onClick={Continue}>
+      <button className="button" onClick={Continue}>
         Next
       </button>
+      <br />
     </FormContainer>
   );
 };

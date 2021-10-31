@@ -1,8 +1,11 @@
 import React from "react";
 import * as auth from "../../services/adminService";
 import { CButton, CDataTable } from "@coreui/react";
-
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 const TransactionList = ({ user }) => {
+  let history = useHistory();
   const [vouchers, setVouchers] = React.useState();
   const getData = () => {
     auth.getTransactionList()
@@ -37,6 +40,10 @@ const TransactionList = ({ user }) => {
     },
   ];
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <div className="container">
       <h5 className="mb-5">Showing Transaction List </h5>
       <CDataTable
@@ -44,9 +51,7 @@ const TransactionList = ({ user }) => {
         fields={fields}
         columnFilter
         tableFilter
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -69,6 +74,7 @@ const TransactionList = ({ user }) => {
           },
         }}
       />
+      </div>
     </div>
   );
 };

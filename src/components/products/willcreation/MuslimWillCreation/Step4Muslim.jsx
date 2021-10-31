@@ -27,7 +27,7 @@ const Step4Muslim = ({
     <FormContainer>
       <h4 className="mb-5"> Step 4: Children</h4>
 
-      <Form>
+      <Form  className="l-form">
         {[...Array(values.children.length)].map((e, i) => (
           <div key={i + 1}>
             <Form.Group controlId="name">
@@ -56,10 +56,8 @@ const Step4Muslim = ({
               ></Form.Control>
             </Form.Group>
 
-            <Button
-              className="mr-3"
-              color="primary"
-              variant="contained"
+            <button
+              className="button"
               disabled={values.children.length === 1}
               onClick={(e) => {
                 var temp = [...values.children];
@@ -76,11 +74,10 @@ const Step4Muslim = ({
             >
               Delete
               <RemoveIcon />
-            </Button>
+            </button>
 
-            <Button
-              variant="contained"
-              color="primary"
+            <button
+              className="button"
               onClick={(e) => {
                 e.preventDefault();
                 var temp = [...values.children];
@@ -94,7 +91,7 @@ const Step4Muslim = ({
             >
               Add More
               <AddIcon />
-            </Button>
+            </button>
 
             <hr
               style={{
@@ -106,13 +103,14 @@ const Step4Muslim = ({
           </div>
         ))}
 
-        <button className="btn btn-primary" onClick={Previous}>
+        <button className="button" onClick={Previous}>
           Prev
         </button>
-        <button className="btn btn-primary" onClick={Continue}>
+        <button className="button" onClick={Continue}>
           Next
         </button>
       </Form>
+      <br />
     </FormContainer>
   );
 };

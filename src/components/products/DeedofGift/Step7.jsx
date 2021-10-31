@@ -110,6 +110,7 @@ const Step7 = ({
 
     const componentProps = {
         ...config,
+        className: "button",
         text: "Checkout",
         onSuccess: (email) => handlePaystackSuccessAction(email),
     };
@@ -401,34 +402,36 @@ const Step7 = ({
     };
 
     return (
-        <div style={{ padding: 30 }}>
-            <h1>Step 7</h1>
-
+        <div  className="container">
+            <h4>Step 7</h4>
+            <div className="l-form">
             <h5>Signature</h5>
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div >
                 <SignatureCanvas
                     ref={sigCanvas}
                     penColor="green"
                     canvasProps={{
-                        width: 500,
+                        width: 300,
                         height: 200,
                         className: "sigCanvas",
                     }}
                 />
+                <div style={{display: "flex"}}>
                 <button
-                    className="btn btn-primary ml-2"
-                    style={{ height: 50 }}
+                 className="button"
+                    style={{ marginRight: 20 }}
                     onClick={clear}
                 >
                     Clear
                 </button>
                 <button
-                    className="btn btn-primary ml-2"
-                    style={{ height: 50 }}
+                 className="button"
                     onClick={save}
                 >
                     Save
                 </button>
+                </div>
+                <br />
             </div>
 
             <h5>Selfie</h5>
@@ -440,11 +443,13 @@ const Step7 = ({
                     onFileChange(values.selectedFile);
                 }}
             ></input>
+            <br />
 
-            <div style={{ display: "flex", alignItems: "baseline" }}>
+            <div>
                 <p className="mr-2">Enter Promotion Code</p>
                 <input
                     value={promoCode}
+                    className="form-control"
                     onChange={(e) => {
                         setPromoCode(e.target.value);
                     }}
@@ -452,15 +457,17 @@ const Step7 = ({
             </div>
 
             <div className="mb-2">
-                <button className="btn btn-primary" onClick={calAmount}>
+                <button className="button" onClick={calAmount}>
                     Calculate
                 </button>
+                <br />
                 <input
                     type="numer"
                     disabled
                     className="ml-2"
                     value={actualPrice}
                 ></input>
+                <br />
             </div>
 
             <div>
@@ -472,10 +479,12 @@ const Step7 = ({
                 <br />
             </div>
 
-            <button className="btn btn-primary" onClick={Previous}>
+            <button className="button" onClick={Previous}>
                 Prev
             </button>
             <PaystackButton {...componentProps} />
+            <br />
+            </div>
         </div>
     );
 };

@@ -3,6 +3,9 @@ import Button from "@material-ui/core/Button";
 import auth from "../../services/adminService";
 import Form from "react-bootstrap/Form";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
 toast.configure();
 const RegOrgUser = ({ history }) => {
   const [email, setEmail] = React.useState();
@@ -36,7 +39,15 @@ const RegOrgUser = ({ history }) => {
   };
 
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link to="/admin/org-user-listing"><FaArrowLeft /></Link>
+      </div>
     <div className="container col-md-6">
+      
+    <br />
+      <h4>Add Organization User</h4>
+      <br />
       <Form>
         <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
@@ -139,11 +150,14 @@ const RegOrgUser = ({ history }) => {
         </div>
 
         <div>
-          <Button variant="contained" color="primary" onClick={handleSubmit}>
+          <button className="button" onClick={handleSubmit}>
             Register
-          </Button>
+          </button>
+          <br />
+          <div></div>
         </div>
       </Form>
+    </div>
     </div>
   );
 };

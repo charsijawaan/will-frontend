@@ -14,11 +14,11 @@ const Step3 = ({ nextStep, prevStep, handleChange,changeState, values }) => {
     }
 
     return (
-        <div style={{padding: 30}}>            
-            <h1>Step 3</h1>
-            <h1>Trustee Details</h1>
+        <div className="container">            
+            <h4>Step 3</h4>
+            <h5>Trustee Details</h5>
 
-            <Form>
+            <Form className="l-form">
 
                 {/* Is the Grantor not the Trustee */}
                 <Form.Group>
@@ -151,8 +151,9 @@ const Step3 = ({ nextStep, prevStep, handleChange,changeState, values }) => {
 
             </Form>
 
-            <button className="btn btn-primary" onClick={Previous} >Prev</button>
-            <button className="btn btn-primary ml-4" onClick={Continue}>Next</button>
+            <button className="button" onClick={Previous} >Prev</button>
+            <button className="button" onClick={Continue}>Next</button>
+            <br />
         </div>
     )
 }

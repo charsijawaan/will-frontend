@@ -1,0 +1,7 @@
+{
+    "name": "Will Creator",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }

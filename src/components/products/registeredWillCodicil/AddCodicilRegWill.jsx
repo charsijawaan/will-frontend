@@ -6,6 +6,8 @@ import FormContainer from "./../willcreation/FormContainer";
 import { savePersonalDetails, removeLatestWillFromLocalStorage } from "../../../actions/formActions";
 import { useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 const AddCodicilRegWill = ({ history }) => {
 const form = useSelector((state) => state.form);
@@ -94,12 +96,16 @@ function parseURLParams(url) {
 }
 
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <FormContainer>
       <ScrollToMount />
 
-      <h3>Step 2: Personal Details</h3>
+      <h4>Step 2: Personal Details</h4>
 
-      <Form noValidate validated={validated} onSubmit={submitHandler}>
+      <Form className="l-form" noValidate validated={validated} onSubmit={submitHandler}>
         <Form.Group controlId="prefix">
           <Form.Label>Prefix </Form.Label>
           <Form.Control
@@ -278,12 +284,13 @@ function parseURLParams(url) {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
+        <button className="button" type="submit" variant="primary">
           Update & Continue
-        </Button>
-
+        </button>
+    <br />
       </Form>
     </FormContainer>
+    </div>
   );
 };
 

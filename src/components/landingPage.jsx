@@ -8,7 +8,9 @@ class LandingPage extends Component {
   state = {};
   render() {
     return (
+      
       <>
+      
         <div  className="position-relative w-100 landing-hero">
           <div className="position-absolute text-white d-flex flex-column align-items-center justify-content-center landing-hero-inner">
     

@@ -9,7 +9,7 @@ const ItemForm = ({ label, children, type = "text", ...otherProps }) => (
             <label>{label}</label>
           </div>
           <div class="col">
-            <input type={type} {...otherProps} />
+            <input type={type} {...otherProps} className="form-control" />
           </div>
         </div>
       </>
@@ -20,7 +20,7 @@ const ItemForm = ({ label, children, type = "text", ...otherProps }) => (
             <label>{label}</label>
           </div>
           <div class="col">
-            <input type={type} {...otherProps} />
+            <input type={type} {...otherProps} className="form-control"/>
           </div>
         </div>
       </>

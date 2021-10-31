@@ -3,6 +3,9 @@ import { CButton, CDataTable, CCollapse, CCardBody } from "@coreui/react";
 import { Button } from "react-bootstrap";
 import * as auth from "../../services/adminService";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
 toast.configure();
 
 const OrgUserListing = ({ history }) => {
@@ -72,24 +75,29 @@ const OrgUserListing = ({ history }) => {
     }
   };
   return (
+    <div className="global-container bg-fixed" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link to="/adminhome"><FaArrowLeft /></Link>
+      </div>
     <div className="container">
-      <Button
-        className="m-3"
+      
+      <br />
+      <h4>Organization Users</h4>
+      <br />
+      <button
+        className="button"
         onClick={() => {
           history.push("/register/orgaisationalUsers");
         }}
       >
         Add Organisation User
-      </Button>
-      <h5 className="mb-5">Showing List Of Organistion Users</h5>
+      </button>
       <CDataTable
         items={filter}
         fields={fields}
         columnFilter
         tableFilter
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -99,7 +107,7 @@ const OrgUserListing = ({ history }) => {
                 <td className="py-2">
                   <CButton
                     color="primary"
-                    variant="outline"
+                    className="button button-b"
                     shape="square"
                     size="sm"
                     onClick={() => {
@@ -146,9 +154,9 @@ const OrgUserListing = ({ history }) => {
                 <td className="py-2">
                   <CButton
                     color="primary"
-                    variant="outline"
                     shape="square"
                     size="sm"
+                    className="button button-b"
                     onClick={() => {
                       window.location.href = "/editorguser?profile=" + item._id;
                     }}
@@ -165,8 +173,8 @@ const OrgUserListing = ({ history }) => {
                 <td className="py-2">
                   <CButton
                     color="primary"
-                    variant="outline"
                     shape="square"
+                    className="button button-b"
                     size="sm"
                     onClick={() => handleDisableUser(item._id)}
                   >
@@ -178,6 +186,7 @@ const OrgUserListing = ({ history }) => {
           },
         }}
       />
+      </div>
     </div>
   );
 };

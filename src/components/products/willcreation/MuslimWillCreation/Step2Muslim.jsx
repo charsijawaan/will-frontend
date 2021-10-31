@@ -17,9 +17,9 @@ const Step2Muslim = ({ nextStep, prevStep, handleChange, values }) => {
   return (
     <div>
       <FormContainer>
-        <h3>Step 2: Personal Details</h3>
+        <h4>Step 2: Personal Details</h4>
         <ScrollToMount />
-        <Form>
+        <Form className="l-form">
           <Form.Group controlId="prefix">
             <Form.Label>Prefix</Form.Label>
             <Form.Control
@@ -180,14 +180,15 @@ const Step2Muslim = ({ nextStep, prevStep, handleChange, values }) => {
             </Form.Control>
           </Form.Group>
           {values.makingFor === "Yes" && (
-            <button className="btn btn-primary" onClick={Previous}>
+            <button className="button" onClick={Previous}>
               Prev
             </button>
           )}
-          <button className="btn btn-primary" onClick={Continue}>
+          <button className="button" onClick={Continue}>
             Next
           </button>
         </Form>
+        <br />
       </FormContainer>
     </div>
   );

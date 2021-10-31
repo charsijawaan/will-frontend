@@ -16,6 +16,8 @@ import Step13Muslim from "./Step13Muslim";
 import Step14Muslim from "./Step14Muslim";
 import Step15Muslim from "./Step15Muslim";
 import Step16Muslim from "./Step16Muslim";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default class MuslimWillCreation extends Component {
   state = {
@@ -357,6 +359,10 @@ export default class MuslimWillCreation extends Component {
     switch (step) {
       case 0:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+            <div className="back-button">
+              <Link to="/individualProducts"><FaArrowLeft /></Link>
+            </div>
           <Step1Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -365,9 +371,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 1:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step2Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -376,9 +384,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 2:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step3Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -387,9 +397,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 3:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step4Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -398,9 +410,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 4:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step5Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -409,9 +423,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 5:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step6Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -420,9 +436,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 6:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step7Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -431,9 +449,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 7:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step8Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -442,9 +462,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 8:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step9Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -453,9 +475,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 9:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step10Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -464,9 +488,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 10:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step11Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -475,9 +501,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 11:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step12Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -485,9 +513,11 @@ export default class MuslimWillCreation extends Component {
             changeState={this.changeState}
             values={values}
           />
+          </div>
         );
       case 12:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step13Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -496,9 +526,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 13:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step14Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -507,9 +539,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 14:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step15Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -519,9 +553,11 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
       case 15:
         return (
+          <div className="global-container" style={{backgroundAttachment:"fixed"}}>
           <Step16Muslim
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -530,6 +566,7 @@ export default class MuslimWillCreation extends Component {
             onFileChange={this.onFileChange}
             values={values}
           />
+          </div>
         );
     }
   }

@@ -5,9 +5,13 @@ import * as admin from "../../services/adminService";
 import { toast } from "react-toastify";
 import { PaystackButton } from "react-paystack";
 import SearchedWill from "../searchedwill";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 toast.configure();
 
 const SearchForm = () => {
+  let history = useHistory();
   const [regNo, setRegNo] = React.useState();
   const [willOwnerName, setWillOwnerName] = React.useState();
   const [willOwnerPh, setWillOwnerPh] = React.useState();
@@ -260,31 +264,28 @@ const SearchForm = () => {
     }
   };
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <div className="container">
+      <form className="l-form">
       {!result && (
         <div className="container">
           <h4>Basic Search Form</h4>
-          <div className="row">
-            <div className="col-md-6">
               <label>Do you have reg no?</label>
-            </div>
-            <div classname="col">
-              <select onChange={handleChange}>
+              <select onChange={handleChange} className="form-control">
                 <option>Please Select One</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
-            </div>
-          </div>
           <br />
           {showFields && (
-            <div className="row">
-              <div className="col-md-6">
+            <div>
                 <label>Will Registeration Number</label>
-              </div>
-
               <input
                 name="regNo"
+                className="form-control"
                 onChange={(e) => {
                   setRegNo(e.target.value);
                 }}
@@ -295,36 +296,33 @@ const SearchForm = () => {
 
           {!showFields && (
             <div>
-              <div className="row">
-                <div className="col-md-6">
+              <div >
                   <label>Name of Will Owner</label>
-                </div>
                 <input
                   name="willOwnerName"
+                  className="form-control"
                   onChange={(e) => {
                     setWillOwnerName(e.target.value);
                   }}
                 />
               </div>
               <br />
-              <div className="row">
-                <div className="col-md-6">
+              <div >
                   <label>Phone of Will Owner</label>
-                </div>
                 <input
                   name="willOwnerPh"
+                  className="form-control"
                   onChange={(e) => {
                     setWillOwnerPh(e.target.value);
                   }}
                 />
               </div>
               <br />
-              <div className="row">
-                <div className="col-md-6">
+              <div >
                   <label>DOB of Will Owner</label>
-                </div>
                 <input
                   name="willOwnerDob"
+                  className="form-control"
                   type="date"
                   onChange={(e) => {
                     setWillOwnerDob(e.target.value);
@@ -335,190 +333,174 @@ const SearchForm = () => {
             </div>
           )}
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Relationship with Will Owner</label>
-            </div>
             <input
               name="relationship"
+              className="form-control"
               onChange={(e) => {
                 setRelationship(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div >
               <label>Reasons for Search</label>
-            </div>
+            
             <input
               name="reasons"
+              className="form-control"
               onChange={(e) => {
                 setReasons(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Requester Title</label>
-            </div>
             <input
               name="reqTitle"
+              className="form-control"
               onChange={(e) => {
                 setReqTitle(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Requester First Name</label>
-            </div>
             <input
               name="reqFname"
+              className="form-control"
               onChange={(e) => {
                 setReqFname(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Requester Middle Name</label>
-            </div>
             <input
               name="reqMname"
+              className="form-control"
               onChange={(e) => {
                 setReqMname(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div >
               <label>Requester Last Name</label>
-            </div>
             <input
               name="reqLname"
+              className="form-control"
               onChange={(e) => {
                 setReqLname(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div >
               <label>Requester Address</label>
-            </div>
             <input
               name="reqAdd"
+              className="form-control"
               onChange={(e) => {
                 setReqAdd(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Requester Email</label>
-            </div>
             <input
               name="reqEmail"
+              className="form-control"
               onChange={(e) => {
                 setReqEmail(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Requester Phone Number</label>
-            </div>
             <input
               name="reqPhNo"
+              className="form-control"
               onChange={(e) => {
                 setReqPhNo(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div >
               <label>Requester Address Line 1</label>
-            </div>
             <input
               name="reqAddLine1"
+              className="form-control"
               onChange={(e) => {
                 setReqAddLine1(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Requester Address Line 2</label>
-            </div>
             <input
               name="reqAddLine2"
+              className="form-control"
               onChange={(e) => {
                 setReqAddLine2(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Requester Town</label>
-            </div>
             <input
               name="town"
+              className="form-control"
               onChange={(e) => {
                 setTown(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Requester Country</label>
-            </div>
             <input
               name="country"
+              className="form-control"
               onChange={(e) => {
                 setCountry(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Requester Post Code</label>
-            </div>
             <input
               name="reqPostcode"
+              className="form-control"
               onChange={(e) => {
                 setReqPostcode(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div>
               <label>Promotion Code</label>
-            </div>
             <input
               name="promoCode"
+              className="form-control"
               onChange={(e) => {
                 setPromoCode(e.target.value);
               }}
             />
           </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <div >
               <label>Requster Selfie Image</label>
-            </div>
             <input
               type="file"
               onChange={(e) => {
@@ -528,17 +510,15 @@ const SearchForm = () => {
           </div>
           <br />
 
-          <Button
-            className="mb-4"
-            variant="contained"
-            color="primary"
+          <button
+            className="button"
             onClick={handleSubmit}
           >
             Search
-          </Button>
-          <Button variant="contained" color="primary" onClick={calculateAmount}>
+          </button>
+          <button className="button" onClick={calculateAmount}>
             Checkout
-          </Button>
+          </button>
           {show && (
             <div>
               Your actual amount is: {willPrice}
@@ -556,6 +536,9 @@ const SearchForm = () => {
           <SearchedWill reg={regNo} ph={willOwnerPh} />
         </div>
       )}
+      </form>
+      </div>
+      <br />
     </div>
   );
 };

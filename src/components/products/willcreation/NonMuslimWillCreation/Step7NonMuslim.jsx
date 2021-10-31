@@ -24,9 +24,9 @@ const Step7NonMuslim = ({
   };
   return (
     <FormContainer>
-      <h3>Step 7: Asset Details</h3>
+      <h4>Step 7: Asset Details</h4>
 
-      <Form>
+      <Form className="l-form">
         {[...Array(values.step7AssetDetails.length)].map((e, i) => (
           <div key={i + 1}>
             <Form.Group controlId="type">
@@ -188,12 +188,13 @@ const Step7NonMuslim = ({
           </div>
         ))}
 
-        <button className="btn btn-primary" onClick={Previous}>
+        <button className="button" onClick={Previous}>
           Prev
         </button>
-        <button className="btn btn-primary" onClick={Continue}>
+        <button className="button" onClick={Continue}>
           Next
         </button>
+        <br />
       </Form>
     </FormContainer>
   );

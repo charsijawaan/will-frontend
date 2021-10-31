@@ -3,6 +3,8 @@ import Button from "@material-ui/core/Button";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
 import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 import {
   createForm,
   saveAdditionalDetails,
@@ -14,6 +16,7 @@ import { v4 as uuidv4 } from "uuid";
 import { makeStyles } from "@material-ui/core/styles";
 import FormContainer from "./../willcreation/FormContainer";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function parseURLParams(url) {
     var queryStart = url.indexOf("?") + 1,
@@ -48,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ManageAdditionDetailsRegWill = () => {
+  let history = useHistory();
   const dispatch = useDispatch();
   const form = useSelector((state) => state.form);
   const { additionalDetails } = form;
@@ -130,10 +134,14 @@ const ManageAdditionDetailsRegWill = () => {
 
 
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <FormContainer>
       <h4 className="mb-5"> Additional Instructions</h4>
 
-      <Form className={classes.root} onSubmit={handleSubmit}>
+      <Form className="l-form" onSubmit={handleSubmit}>
         {inputFields.map((inputField) => (
           <div className="mb-5" key={inputField.id}>
             <Form.Group controlId="description">
@@ -153,23 +161,20 @@ const ManageAdditionDetailsRegWill = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Button
-              className="mr-3"
-              color="primary"
-              variant="contained"
+            <button
+          className="button"
               disabled={inputFields.length === 1}
               onClick={() => handleRemoveFields(inputField.id)}
             >
               Delete <RemoveIcon />
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
+            </button>
+            <button
+          className="button"
               disabled={inputFields.length === 4}
               onClick={handleAddFields}
             >
               Add More <AddIcon />
-            </Button>
+            </button>
           </div>
         ))}
         <Form.Group controlId="isLiterate">
@@ -218,29 +223,26 @@ const ManageAdditionDetailsRegWill = () => {
           </>
         )}
 
-          <Button
-            className="mt-5 mb-5 mr-5"
-            variant="contained"
-            color="primary"
+          <button
+          className="button"
             onClick={() => {
               window.location.href = "/managewill/burialregwill?will_id=" + parseURLParams(window.location.href).will_id[0];
             }}
           >
           Back
-        </Button>
-        <Button
-          className="mt-5 mb-5"
-          variant="contained"
-          color="primary"
+        </button>
+        <button
+          className="button"
           type="submit"
           onClick={handleSubmit}
         >
           Update & Continue
-        </Button>
+        </button>
 
        
       </Form>
-    </FormContainer>
+      <br />
+    </FormContainer> </div>
   );
 };
 

@@ -29,9 +29,9 @@ const Step10MuslimCodicil = ({
 
   return (
     <FormContainer>
-      <h3>Step 10: Allocation of Estate (In order of Priority)</h3>
+      <h4>Step 10: Allocation of Estate (In order of Priority)</h4>
 
-      <Form>
+      <Form >
         <Form.Label
           as="legend"
           className="text-center mt-5 mb-5"
@@ -88,21 +88,22 @@ const Step10MuslimCodicil = ({
           </div>
         ))}
       </Form>
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
-      <button className="btn btn-primary" onClick={Continue}>
+      <button className="button" onClick={Continue}>
         Next
       </button>
       <br></br>
       <button
-        className="btn btn-primary"
+        className="button"
         onClick={(e) => {
           updateAndClose(e);
         }}
       >
         Update & Close
       </button>
+      <br />
     </FormContainer>
   );
 };

@@ -5,8 +5,12 @@ import * as authenticate from "../services/authService";
 import { CButton, CDataTable } from "@coreui/react";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 const ViewSales = () => {
+  
+  let history = useHistory();
   const [sales, setSales] = React.useState();
   const getData = () => {
     auth
@@ -50,7 +54,11 @@ const ViewSales = () => {
     // },
   ];
 
-  return (
+  return (    
+  <div className="global-container">
+  <div className="back-button">
+    <Link onClick={history.goBack}><FaArrowLeft /></Link>
+  </div>
     <div className="container">
       <h4>All Sales</h4>
       <br />
@@ -59,9 +67,7 @@ const ViewSales = () => {
         fields={fields}
         columnFilter
         tableFilter
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -84,6 +90,7 @@ const ViewSales = () => {
           // }
         }}
       />
+      </div>
     </div>
   );
 };

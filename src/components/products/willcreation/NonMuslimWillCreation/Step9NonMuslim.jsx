@@ -22,12 +22,12 @@ const Step9NonMuslim = ({
     };
     return (
         <FormContainer>
-            <h3>Step 9: Remainder of the Estate</h3>
+            <h4>Step 9: Remainder of the Estate</h4>
             <Form.Label>
                 The person that should inherit the estate after specific gifts
                 had been distributed
             </Form.Label>
-            <Form>
+            <Form className="l-form">
                 <Form.Group>
                     <Form.Label>Do You Want to Distribute equally?</Form.Label>
                     <Form.Control
@@ -413,11 +413,11 @@ const Step9NonMuslim = ({
                     </>
                 )}
             </Form>
-            <button className="btn btn-primary" onClick={Previous}>
+            <button className="button" onClick={Previous}>
                 Prev
             </button>
             <button
-                className="btn btn-primary"
+                className="button"
                 onClick={(e) => {
                     if (values.doYouWantToDistributeEqually === "No") {
                         let percentage = 0;
@@ -443,6 +443,7 @@ const Step9NonMuslim = ({
             >
                 Next
             </button>
+            <br />
         </FormContainer>
     );
 };

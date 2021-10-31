@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 function parseURLParams(url) {
     var queryStart = url.indexOf("?") + 1,
@@ -74,8 +77,13 @@ export default class ViewDeedofGift extends React.Component {
 
     render() {
         return (
-            <div>
-                <h3>Deed of Gifts Table</h3>
+            
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}> 
+    <div className="back-button">
+      <Link  to="/individualuser/home"><FaArrowLeft /></Link>
+    </div>
+            <div className="container">
+                <h4>Deed of Gifts Table</h4>
                 <table className="table">
                     {/* Header */}
                     <tr>
@@ -107,6 +115,7 @@ export default class ViewDeedofGift extends React.Component {
                         );
                     })}
                 </table>
+            </div>
             </div>
         );
     }

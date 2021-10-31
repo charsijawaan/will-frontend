@@ -24,9 +24,9 @@ const Step7Muslim = ({
     };
     return (
         <FormContainer>
-            <h3>Step 7: Asset Details</h3>
+            <h4>Step 7: Asset Details</h4>
 
-            <Form>
+            <Form className="l-form">
                 {[...Array(values.step7AssetDetails.length)].map((e, i) => (
                     <div key={i + 1}>
                         <Form.Group controlId="type">
@@ -152,10 +152,8 @@ const Step7Muslim = ({
                             }}
                         ></input>
 
-                        <Button
-                            className="mr-3"
-                            color="primary"
-                            variant="contained"
+                        <button
+                            className="button"
                             //   disabled={values.step7AssetDetails.length === 1}
                             onClick={(e) => {
                                 e.preventDefault();
@@ -179,11 +177,10 @@ const Step7Muslim = ({
                             }}
                         >
                             Delete <RemoveIcon />
-                        </Button>
+                        </button>
 
-                        <Button
-                            variant="contained"
-                            color="primary"
+                        <button
+                            className="button"
                             onClick={(e) => {
                                 e.preventDefault();
                                 var temp = [...values.step7AssetDetails];
@@ -211,7 +208,7 @@ const Step7Muslim = ({
                             }}
                         >
                             Add More <AddIcon />
-                        </Button>
+                        </button>
 
                         <hr
                             style={{
@@ -223,13 +220,14 @@ const Step7Muslim = ({
                     </div>
                 ))}
 
-                <button className="btn btn-primary" onClick={Previous}>
+                <button className="button" onClick={Previous}>
                     Prev
                 </button>
-                <button className="btn btn-primary" onClick={Continue}>
+                <button className="button" onClick={Continue}>
                     Next
                 </button>
             </Form>
+            <br />
         </FormContainer>
     );
 };

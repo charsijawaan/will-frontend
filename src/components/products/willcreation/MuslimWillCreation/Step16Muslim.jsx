@@ -170,9 +170,9 @@ const Step16Muslim = ({
 
     return (
         <FormContainer>
-            <h3>Step 16: Validation</h3>
+            <h4>Step 16: Validation</h4>
 
-            <Form onSubmit={submitForm}>
+            <Form onSubmit={submitForm} className="l-form">
                 <Form.Group controlId="file1">
                     <Form.Label>Selfie of the person that prepared </Form.Label>
                     <Form.Control
@@ -202,11 +202,11 @@ const Step16Muslim = ({
                         }}
                     ></Form.Control>
                 </Form.Group>
-                <Button type="submit" variant="primary">
+                <button className="button" type="submit" variant="primary">
                     Submit Form
-                </Button>
+                </button>
             </Form>
-            <button className="btn btn-primary" onClick={Previous}>
+            <button className="button" onClick={Previous}>
                 Prev
             </button>
         </FormContainer>

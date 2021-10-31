@@ -5,6 +5,9 @@ import Button from "@material-ui/core/Button";
 import Form from "react-bootstrap/Form";
 import { toast } from "react-toastify";
 import axios from 'axios';
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
 
 toast.configure();
 const EmployeeVoucherInvoiceCreation = () => {
@@ -176,9 +179,17 @@ const EmployeeVoucherInvoiceCreation = () => {
     
   }
   return (
+    <div className="global-container bg-fixed" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link to="/adminhome"><FaArrowLeft /></Link>
+      </div>
     <div className="container">
-      <Form>
-        <div class="form-group">
+      
+    <br />
+      <h4>Create Invoice</h4>
+      <br />
+      <Form className="l-form">
+        <div className="form-group">
           <div className="row">
             <div className="col-md-6">
               <label>B2B Client Name</label>
@@ -187,7 +198,7 @@ const EmployeeVoucherInvoiceCreation = () => {
               <select
                 for="exampleInputEmail1"
                 name="b2bClient"
-                class="form-control"
+                class="form-control login__form"
                 id="exampleInputEmail1"
                 onChange={(e) => {
                   setName(e.target.value);
@@ -238,26 +249,28 @@ const EmployeeVoucherInvoiceCreation = () => {
         </div>
           </>
         )}
-        <div className="form-group">
+        <div className="form-group container">
           <div className="row">
-            <div classname="col-md-6">Amount</div>
-            <div className="col-md-6">
-              {show && <div>{amount}</div>}
+            <div className="col"><h4>Amount</h4></div>
+            <div className="col">
+              {show && <div><h4>{amount}</h4></div>}
 
-              <Button
-                variant="contained"
-                color="primary"
+            </div>
+          </div>
+          
+          <button
+                className="button"
                 onClick={handleCalAmount}
               >
                 Calculate Amount
-              </Button>
-            </div>
-          </div>
-        </div>
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
+              </button>
+              
+        <button className="button" onClick={handleSubmit}>
           Complete
-        </Button>
+        </button>
+        </div>
       </Form>
+    </div>
     </div>
   );
 };

@@ -4,10 +4,15 @@ import auth from "../../services/adminService";
 import Form from "react-bootstrap/Form";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 toast.configure();
 const EditOrgUser = () => {
 
+  let history = useHistory();
   const querystring = window.location.search;
   const URLParams = new URLSearchParams(querystring);
 
@@ -75,9 +80,13 @@ const EditOrgUser = () => {
     }    
   };
   return (
+      <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+        <div className="back-button">
+          <Link onClick={history.goBack}><FaArrowLeft /></Link>
+        </div>
     <div className="container">
-      <h5 className="mb-5">Edit Profile</h5>
-      <Form>
+      <h4 className="mb-5">Edit Profile</h4>
+      <Form className="l-form">
         <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
           {userType === "organisationUser" &&
@@ -291,16 +300,17 @@ const EditOrgUser = () => {
         </div>
 
         <div>
-          <Button
-            variant="contained"
-            color="primary"
-            className="mb-5"
+          <button
+            className="button"
             onClick={handleUpdate}
           >
             Update
-          </Button>
+          </button>
+          <br />
+          <div></div>
         </div>
       </Form>
+    </div>
     </div>
   );
 };

@@ -169,9 +169,9 @@ const Step15NonMuslim = ({
     };
     return (
         <FormContainer>
-            <h3>Step 15: Validation</h3>
+            <h4>Step 15: Validation</h4>
 
-            <Form onSubmit={submitForm}>
+            <Form onSubmit={submitForm} className="l-form">
                 <Form.Group controlId="file1">
                     <Form.Label>Selfie of the person that prepared </Form.Label>
                     <Form.Control
@@ -202,13 +202,15 @@ const Step15NonMuslim = ({
                     ></Form.Control>
                 </Form.Group>
 
-                <Button type="submit" variant="primary">
+                <Button className="button">
                     Submit Form
                 </Button>
+                <br />
             </Form>
-            <button className="mt-2 btn btn-primary" onClick={Previous}>
+            <button className="mt-2 button" onClick={Previous}>
                 Prev
             </button>
+            <br />
         </FormContainer>
     );
 };

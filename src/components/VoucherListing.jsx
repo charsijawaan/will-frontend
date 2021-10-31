@@ -5,8 +5,11 @@ import { CButton, CDataTable } from "@coreui/react";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 const VoucherListing = () => {
+  let history = useHistory();
 
   const [voucher, setVoucher] = React.useState();
   const [popIsOpen, setPopIsOpen] = React.useState(false);
@@ -110,6 +113,10 @@ const VoucherListing = () => {
   ];
 
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <div className="container">
       {popIsOpen && 
         <div style={{position:"absolute", top:"50%", left:"40%", width:400, height:50, backgroundColor: "#fff", zIndex: 100}}>
@@ -133,26 +140,13 @@ const VoucherListing = () => {
           </div>
         </div>
       }
-      <Button
-        variant="contained"
-        color="primary"
-        component={Link}
-        to="/voucherpage"
-      >
-        Generate Voucher
-      </Button>
-      <br />
-      <br />
-      <br />
+      <Link to="/voucherpage"><button className="button">Generate Voucher</button></Link>
       <CDataTable
         items={arr}
         fields={fields}
         columnFilter
         tableFilter
-        footer
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -161,7 +155,7 @@ const VoucherListing = () => {
               <td className="py-2">
                 <CButton
                   color="primary"
-                  variant="outline"
+                  className="button button-b"
                   shape="square"
                   size="sm"
                   onClick={() => {
@@ -180,7 +174,7 @@ const VoucherListing = () => {
                 <td className="py-2">
                   <CButton
                     color="primary"
-                    variant="outline"
+                    className="button button-b"
                     shape="square"
                     size="sm"
                     onClick={() => {
@@ -209,7 +203,7 @@ const VoucherListing = () => {
               <td className="py-2">
                 <CButton
                   color="primary"
-                  variant="outline"
+                  className="button button-b"
                   shape="square"
                   size="sm"
                   onClick={(e) => {
@@ -223,6 +217,7 @@ const VoucherListing = () => {
           },
         }}
       />
+    </div>
     </div>
   );
 };

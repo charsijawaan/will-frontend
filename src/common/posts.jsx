@@ -64,10 +64,7 @@ const Formdata = (props) => {
         fields={fields}
         columnFilter
         tableFilter
-        footer
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -76,6 +73,7 @@ const Formdata = (props) => {
               <td className="py-2">
                 <CButton
                   color="primary"
+                  className="button button-b"
                   variant="outline"
                   shape="square"
                   size="sm"
@@ -89,7 +87,7 @@ const Formdata = (props) => {
           button1: (item, index) => {
             return (
               <td className="py-2">
-                <CButton color="primary" variant="outline" shape="square" size="sm">
+                <CButton color="primary" className="button button-b" variant="outline" shape="square" size="sm">
                   <a onClick={() => {
                       axios.post('/getimg', {
                         imgURL: item.img,

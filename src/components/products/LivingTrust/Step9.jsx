@@ -13,12 +13,12 @@ const Step9 = ({ nextStep, prevStep, handleChange, values }) => {
         prevStep();
     }    
     return (
-        <div style={{padding: 30}}>
+        <div className="container">
 
-            <h1>Step 9</h1>
-            <h1>Pour Over Will</h1>
+            <h4>Step 9</h4>
+            <h5>Pour Over Will</h5>
 
-            <Form>
+            <Form className="l-form">
                 {/* Do you want to include Pour-Over Will */}
                 <Form.Group>
                     <Form.Label>Do you want to include Pour-Over Will</Form.Label>
@@ -35,9 +35,9 @@ const Step9 = ({ nextStep, prevStep, handleChange, values }) => {
                 }               */}
             </Form>
 
-            <button className="btn btn-primary" onClick={Previous} >Prev</button>
-            <button className="btn btn-primary ml-4" onClick={Continue}>Next</button>
-            
+            <button className="button" onClick={Previous} >Prev</button>
+            <button className="button" onClick={Continue}>Next</button>
+            <br />
         </div>
     )
 }

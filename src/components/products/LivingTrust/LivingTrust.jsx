@@ -12,7 +12,8 @@ import Step9 from "./Step9";
 import Step10 from "./Step10";
 import Step11 from "./Step11";
 import Step12 from "./Step12";
-
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 export default class LivingTrust extends Component {
     state = {
         step: 1,
@@ -281,24 +282,32 @@ export default class LivingTrust extends Component {
         switch (step) {
             case 1:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+                    <div className="back-button">
+                      <Link to="/individualuser/home"><FaArrowLeft /></Link>
+                    </div>
                     <Step1
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
                         values={values}
                     />
+                    </div>
                 );
             case 2:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step2
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
                         values={values}
                     />
+                    </div>
                 );
             case 3:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step3
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
@@ -306,9 +315,11 @@ export default class LivingTrust extends Component {
                         changeState={this.changeState}
                         values={values}
                     />
+                    </div>
                 );
             case 4:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step4
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
@@ -316,10 +327,11 @@ export default class LivingTrust extends Component {
                         onFileChange={this.onFileChange}
                         changeState={this.changeState}
                         values={values}
-                    />
+                    /></div>
                 );
             case 5:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step5
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
@@ -327,6 +339,7 @@ export default class LivingTrust extends Component {
                         changeState={this.changeState}
                         values={values}
                     />
+                    </div>
                 );
             // case 6:
             //     return (
@@ -340,6 +353,7 @@ export default class LivingTrust extends Component {
             //     );
             case 6:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step7
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
@@ -347,45 +361,55 @@ export default class LivingTrust extends Component {
                         changeState={this.changeState}
                         values={values}
                     />
+                    </div>
                 );
             case 7:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step8
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
                         values={values}
                     />
+                    </div>
                 );
             case 8:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step9
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
                         values={values}
                     />
+                    </div>
                 );
             case 9:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step10
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
                         values={values}
                     />
+                    </div>
                 );
             case 10:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step11
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
                         values={values}
                     />
+                    </div>
                 );
             case 11:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step12
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
@@ -394,6 +418,7 @@ export default class LivingTrust extends Component {
                         onFileChange={this.onFileChange}
                         values={values}
                     />
+                    </div>
                 );
 
             default:

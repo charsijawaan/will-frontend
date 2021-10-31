@@ -29,7 +29,7 @@ const Step14MuslimCodicil = ({
     <FormContainer>
       <h4 className="mb-5">Step 14: Additional Instructions</h4>
 
-      <Form>
+      <Form  className="l-form">
         {[...Array(values.additionalInstructions.length)].map((e, i) => (
           <div key={i + 1}>
             <Form.Group controlId="description">
@@ -48,10 +48,8 @@ const Step14MuslimCodicil = ({
               ></Form.Control>
             </Form.Group>
 
-            <Button
-              className="mr-3"
-              color="primary"
-              variant="contained"
+            <button
+              className="button"
               disabled={values.additionalInstructions.length === 1}
               onClick={(e) => {
                 var temp = [...values.additionalInstructions];
@@ -68,12 +66,11 @@ const Step14MuslimCodicil = ({
             >
               Delete
               <RemoveIcon />
-            </Button>
+            </button>
 
-            <Button
+            <button
               disabled={values.additionalInstructions.length === 4}
-              variant="contained"
-              color="primary"
+              className="button"
               onClick={(e) => {
                 console.log(values.additionalInstructions);
                 e.preventDefault();
@@ -90,7 +87,7 @@ const Step14MuslimCodicil = ({
             >
               Add More
               <AddIcon />
-            </Button>
+            </button>
             <hr
               style={{
                 marginBottom: "3rem",
@@ -144,21 +141,22 @@ const Step14MuslimCodicil = ({
           </div>
         )}
       </Form>
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
-      <button className="btn btn-primary" onClick={Continue}>
+      <button className="button" onClick={Continue}>
         Next
       </button>
       <br></br>
       <button
-        className="btn btn-primary"
+        className="button"
         onClick={(e) => {
           updateAndClose(e);
         }}
       >
         Update & Close
       </button>
+      <br />
     </FormContainer>
   );
 };

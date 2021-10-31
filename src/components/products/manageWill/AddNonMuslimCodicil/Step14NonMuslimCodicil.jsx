@@ -31,7 +31,7 @@ const Step14NonMuslimCodicil = ({
     <FormContainer>
       <h4 className="mb-5">Step 14: Signing Details</h4>
 
-      <Form onSubmit={submitForm}>
+      <Form onSubmit={submitForm} className="l-form">
         {[...Array(values.step14Witness.length)].map((e, i) => (
           <div key={i + 1}>
             <Form.Group controlId="name">
@@ -95,18 +95,19 @@ const Step14NonMuslimCodicil = ({
         ))}
       </Form>
 
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
       <br></br>
       <button
-        className="btn btn-primary"
+        className="button"
         onClick={(e) => {
           updateAndClose(e);
         }}
       >
         Update & Close
       </button>
+      <br />
     </FormContainer>
   );
 };

@@ -14,12 +14,12 @@ const Step6 = ({ nextStep, prevStep, handleChange, changeState, values }) => {
     }
 
     return (
-        <div  style={{padding: 30}}>
-            <h1>Step 6</h1>
+        <div  className="container">
+            <h4>Step 6</h4>
 
             <h6>Agent Details that will act on the behalf of the Donor to carry out the transfer</h6>
 
-            <Form>
+            <Form  className="l-form">
 
                 {/* Agent Full Name */}
                 <Form.Group>
@@ -96,8 +96,9 @@ const Step6 = ({ nextStep, prevStep, handleChange, changeState, values }) => {
 
             </Form>
 
-            <button className="btn btn-primary" onClick={Previous} >Prev</button>
-            <button className="btn btn-primary ml-4" onClick={Continue}>Next</button>
+            <button className="button" onClick={Previous} >Prev</button>
+            <button className="button" onClick={Continue}>Next</button>
+            <br />
         </div>
     )
 }

@@ -29,9 +29,9 @@ const Step12MuslimCodicil = ({
 
   return (
     <FormContainer>
-      <h3>Step 12: Pet Care Takers</h3>
+      <h4>Step 12: Pet Care Takers</h4>
 
-      <Form>
+      <Form  className="l-form">
         <Form.Group controlId="caretaker">
           <Form.Label>
             Do you want executor to appoint a pet caretaker?
@@ -74,21 +74,22 @@ const Step12MuslimCodicil = ({
         )}
       </Form>
 
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
-      <button className="btn btn-primary" onClick={Continue}>
+      <button className="button" onClick={Continue}>
         Next
       </button>
       <br></br>
       <button
-        className="btn btn-primary"
+        className="button"
         onClick={(e) => {
           updateAndClose(e);
         }}
       >
         Update & Close
       </button>
+      <br />
     </FormContainer>
   );
 };

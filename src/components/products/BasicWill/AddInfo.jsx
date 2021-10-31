@@ -89,9 +89,9 @@ const Contact = ({ setForm, formData, navigation, user }) => {
     </Popup>;
   };
   return (
-    <div className="col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto  form p-4">
-      <h3>Additional Information </h3>
-
+    <div className="container">
+      <h4>Additional Information </h4>
+    <div className="l-form">
       <ItemForm
         label="Address where will is stored"
         name="storedWillAdd"
@@ -105,14 +105,15 @@ const Contact = ({ setForm, formData, navigation, user }) => {
         onChange={setForm}
         type="textarea"
       />
-      <div className="row">
-        <div className="col-md-6">
+      <div >
+        <div >
           <label>Will Source (Internal/External)</label>
         </div>
-        <div className="col-md-6">
+        <div >
           <select
             label="Will Source (Internal/External)"
             name="willSource"
+            className="form-control"
             value={willSource}
             onChange={setForm}
           >
@@ -145,11 +146,11 @@ const Contact = ({ setForm, formData, navigation, user }) => {
         type="number"
       />
 
-      <div className="row">
-        <div className="col-md-6">
+      <div >
+        <div >
           <label>Requester Selfie</label>
         </div>
-        <div classname="col">
+        <div >
           <input
             type="file"
             name="requesterSelfie"
@@ -157,25 +158,24 @@ const Contact = ({ setForm, formData, navigation, user }) => {
               setSelfie(e.target.files[0]);
             }}
           />
-          <Button
-            variant="contained"
-            color="primary"
+          <button
+            className="button"
             onClick={(e) => {
               formData["requesterSelfie"] = requesterSelfie;
             }}
           >
             Save
-          </Button>
+          </button>
         </div>
       </div>
 
 
 
-      <div className="row">
-        <div className="col-md-6">
+      <div >
+        <div >
           <label>Upload Your Will PDF</label>
         </div>
-        <div classname="col">
+        <div>
           <input
             type="file"
             name="willPDF"
@@ -189,18 +189,18 @@ const Contact = ({ setForm, formData, navigation, user }) => {
 
 
       <div>
-        <Button
-          className="m-3"
-          variant="contained"
-          color="primary"
+        <button
+          className="button"
           onClick={previous}
         >
           Previous
-        </Button>
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
+        </button>
+        <button className="button" onClick={handleSubmit}>
           Submit
-        </Button>
+        </button>
+        <br />
       </div>
+    </div>
     </div>
   );
 };

@@ -3,6 +3,9 @@ import Button from "@material-ui/core/Button";
 import auth from "../../services/adminService";
 import Form from "react-bootstrap/Form";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
 toast.configure();
 
 const EditFlyer = () => {
@@ -51,9 +54,15 @@ const EditFlyer = () => {
     }
   };
   return (
+    <div className="global-container">
+    <div className="back-button">
+      <Link to="/admin/flyer"><FaArrowLeft /></Link>
+    </div>
     <div className="container">
-      <h5 className="mb-5">Edit Profile</h5>
-      <Form>
+      <br />
+      <h4>Edit Flyer</h4>
+      <br />
+      <Form className="l-form">
         <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
           <input
@@ -95,16 +104,15 @@ const EditFlyer = () => {
           />
         </div>
         <div>
-          <Button
-            variant="contained"
-            color="primary"
-            className="mb-5"
+          <button
+            className="button"
             onClick={handleUpdate}
           >
             Update
-          </Button>
+          </button>
         </div>
       </Form>
+    </div>
     </div>
   );
 };

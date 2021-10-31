@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./components/login";
 import LandingPage from "./components/landingPage";
 import Register from "./components/individualUser/IndividualSignup";
+import Registration from "./components/register"
 import auth from "./services/authService";
 import Logout from "./components/logout";
 
@@ -63,6 +64,7 @@ import ViewSales from "./components/ViewSales";
 import AmbBalanceRequests from "./components/Org Users/AmbBalReq";
 
 import ManageWill from "./components/products/manageWill/manageWill";
+import productsInd from "./components/products/manageWill/productsInd";
 import AddCodicil from "./components/products/manageWill/addCodicil";
 
 import ViewWillPDF from "./components/products/manageWill/viewWillPDF";
@@ -132,9 +134,10 @@ class App extends React.Component {
     const { user } = this.state;
     return (
       <React.Fragment>
-        <NavBar user={user} />
+        {/* <NavBar user={user} /> */}
         <Switch>
           <Route path="/login" component={Login} />
+          <Route path="/registeration" component={Registration} />
           <Route path="/logout" component={Logout} />
           <Route path="/home" component={LandingPage} />
 
@@ -271,6 +274,10 @@ class App extends React.Component {
             component={ManageOtherDetailsRegWill}
           />
           <Route
+            path="/individualProducts"
+            component={productsInd}
+          />
+          <Route
             path="/managewill/petregwill"
             component={ManagePetDetailsRegWill}
           />
@@ -349,7 +356,7 @@ class App extends React.Component {
           />
 
 
-          <Redirect from="/" exact to="/home" />
+          <Redirect from="/" exact to="/login" />
         </Switch>
       </React.Fragment>
     );

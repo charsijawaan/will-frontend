@@ -22,7 +22,7 @@ const Step3NonMuslim = ({
   };
 
   return (
-    <FormContainer>
+    <FormContainer className="l-form">
       <h4 className="mb-5"> Step 3: Executor Details</h4>
 
       <Form.Label
@@ -41,7 +41,7 @@ const Step3NonMuslim = ({
         law that can take up office is four.
       </Form.Label>
 
-      <Form>
+      <Form className="l-form">
         {[...Array(values.step3ExecutorDetails.length)].map((e, i) => (
           <div key={i + 1}>
             <Form.Group controlId="name">
@@ -242,12 +242,13 @@ const Step3NonMuslim = ({
 
         <br></br>
         <br></br>
-        <button className="btn btn-primary" onClick={Previous}>
+        <button className="button" onClick={Previous}>
           Prev
         </button>
-        <button className="btn btn-primary" onClick={Continue}>
+        <button className="button" onClick={Continue}>
           Next
         </button>
+        <br />
       </Form>
     </FormContainer>
   );

@@ -4,6 +4,9 @@ import Button from "@material-ui/core/Button";
 import * as auth from "../../services/adminService";
 import ProductListing from "./ProductsListing";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
 toast.configure();
 
 const ProductsPrice = () => {
@@ -23,17 +26,22 @@ const ProductsPrice = () => {
   };
 
   return (
+    <div className="global-container bg-fixed" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link to="/adminhome"><FaArrowLeft /></Link>
+      </div>
     <div className="container">
-      <h5>Set Products Price</h5>
+      <h4>Set Products Price</h4>
       <br />
-      <Form>
-        <div class="form-group ">
+      <Form >
+        <div class="form-group container">
           <div className="row">
             <div className="col-md-6">
               <label>Product</label>
             </div>
             <div classname="col">
               <select
+              className="form-control"
                 onChange={(e) => {
                   setProduct(e.target.value);
                 }}
@@ -60,15 +68,14 @@ const ProductsPrice = () => {
               </select>
             </div>
           </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-6">
+          
+                <br />
+        <div>
             <label>Enter Price</label>
-          </div>
           <div>
             <input
               type="number"
+              className="form-control"
               placeholder="enter amount"
               onChange={(e) => {
                 setAmount(e.target.value);
@@ -76,13 +83,15 @@ const ProductsPrice = () => {
             />
           </div>
         </div>
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
+        </div>
+        <button className="button" onClick={handleSubmit}>
           Update price
-        </Button>
+        </button>
         <br />
         <br />
         <ProductListing />
       </Form>
+    </div>
     </div>
   );
 };

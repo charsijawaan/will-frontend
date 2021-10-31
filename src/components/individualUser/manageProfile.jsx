@@ -5,12 +5,16 @@ import Form from "react-bootstrap/Form";
 import Webcam from "react-webcam";
 import { toast } from "react-toastify";
 import axios from 'axios';
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 toast.configure();
 
 
 const ManageProfile = () => {
+  let history = useHistory();
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -79,13 +83,18 @@ const ManageProfile = () => {
     }, []);
   
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <div className="container col-md-6">
-      <Form>
-        <div class="form-group">
+      <h4>Edit Profile</h4>
+      <Form className="l-form">
+        <div className="form-group">
           <label for="exampleInputEmail1">Name</label>
           <input    
             type="name"
-            class="form-control"
+            className="form-control"
             name="name"
             value={name}
             onChange={(e) => {
@@ -93,11 +102,11 @@ const ManageProfile = () => {
             }}
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputEmail1">Email</label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             name="email"
             value={email}
             onChange={(e) => {
@@ -106,11 +115,11 @@ const ManageProfile = () => {
           />
         </div>
 
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputEmail1">Password</label>
           <input        
             type="password"
-            class="form-control"
+            className="form-control"
             name="password"
             value={password}
             onChange={(e) => {
@@ -118,11 +127,11 @@ const ManageProfile = () => {
             }}
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputEmail1">Confirm Password</label>
           <input        
             type="password"
-            class="form-control"
+            className="form-control"
             name="password"
             value={confirmPassword}
             onChange={(e) => {
@@ -131,11 +140,11 @@ const ManageProfile = () => {
           />
         </div>
 
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputEmail1">Town</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             name="text"
             value={town}
             onChange={(e) => {
@@ -143,11 +152,11 @@ const ManageProfile = () => {
             }}
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputEmail1">AddressLine 1</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             name="add1"
             value={add1}
             onChange={(e) => {
@@ -155,11 +164,11 @@ const ManageProfile = () => {
             }}
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputEmail1">Address Line 2</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             name="add2"
             value={add2}
             onChange={(e) => {
@@ -167,11 +176,11 @@ const ManageProfile = () => {
             }}
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputEmail1">Phone Number</label>
           <input
             type="number"
-            class="form-control"
+            className="form-control"
             name="phoneNo"
             value={phoneNo}
             onChange={(e) => {
@@ -179,11 +188,11 @@ const ManageProfile = () => {
             }}
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="exampleInputEmail1">Country</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             name="country"
             value={country}
             onChange={(e) => {
@@ -193,14 +202,15 @@ const ManageProfile = () => {
         </div>
 
         <div>
-          <Button variant="contained" color="primary" onClick={() => {
+          <button className="button" onClick={() => {
               handleSubmit();
           }}>
             Update Profile
-          </Button>
+          </button>
+          <br />
         </div>
       </Form>
-    </div>
+      </div></div>
   );
 };
 

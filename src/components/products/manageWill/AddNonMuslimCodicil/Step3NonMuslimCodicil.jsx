@@ -42,7 +42,7 @@ const Step3NonMuslimCodicil = ({
         law that can take up office is four.
       </Form.Label>
 
-      <Form>
+      <Form  className="l-form">
         {[...Array(values.step3ExecutorDetails.length)].map((e, i) => (
           <div key={i + 1}>
             <Form.Group controlId="name">
@@ -243,15 +243,15 @@ const Step3NonMuslimCodicil = ({
 
         <br></br>
         <br></br>
-        <button className="btn btn-primary" onClick={Previous}>
+        <button className="button" onClick={Previous}>
           Prev
         </button>
-        <button className="btn btn-primary" onClick={Continue}>
+        <button className="button" onClick={Continue}>
           Next
         </button>
         <br></br>
         <button
-          className="btn btn-primary"
+          className="button"
           onClick={(e) => {
             updateAndClose(e);
           }}
@@ -259,6 +259,7 @@ const Step3NonMuslimCodicil = ({
           Update & Close
         </button>
       </Form>
+      <br />
     </FormContainer>
   );
 };

@@ -6,6 +6,9 @@ import { Form } from "react-bootstrap";
 import { saveExecutorDetails, removeLatestWillFromLocalStorage } from "../../../actions/formActions";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import FormContainer from "./../willcreation/FormContainer";
@@ -44,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ManageExecutorDetailsRegWill = () => {
+  let history = useHistory();
   const dispatch = useDispatch();
 
   const classes = useStyles();
@@ -121,6 +125,10 @@ const ManageExecutorDetailsRegWill = () => {
     }, []);
 
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <FormContainer>
       <h4 className="mb-5"> Step4: Executor Details</h4>
 
@@ -139,7 +147,7 @@ const ManageExecutorDetailsRegWill = () => {
         We recommend that you appoint at least two people. The maximum number by
         law that can take up office is four.
       </Form.Label>
-      <Form className={classes.root} onSubmit={handleSubmit}>
+      <Form className="l-form" onSubmit={handleSubmit}>
         {inputFields.map((inputField) => (
           <div key={inputField.id}>
             <Form.Group controlId="name">
@@ -256,23 +264,20 @@ const ManageExecutorDetailsRegWill = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Button
-              className="mr-3"
-              color="primary"
-              variant="contained"
+            <button
+              className="button"
               disabled={inputFields.length === 1}
               onClick={() => handleRemoveFields(inputField.id)}
             >
               Delete <RemoveIcon />
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
+            </button>
+            <button
+            className="button"
               disabled={inputFields.length === 4}
               onClick={handleAddFields}
             >
               Add More <AddIcon />
-            </Button>
+            </button>
           </div>
         ))}
         <Form.Group controlId="addAltExec">
@@ -317,29 +322,26 @@ const ManageExecutorDetailsRegWill = () => {
             onChange={(event) => setExecRenumeration(event.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Button
-          className="mt-5 mb-5 mr-5"
-          variant="contained"
-          color="primary"
+        <button
+          className="button"
           onClick={() => {
             window.location.href = "/managewill/wivesregwill?will_id=" + parseURLParams(window.location.href).will_id[0];
           }}
         >
           Back
-        </Button>
-        <Button
-          className="mt-5 mb-5"
-          variant="contained"
-          color="primary"
+        </button>
+        <button
+          className="button"
           type="submit"
           onClick={handleSubmit}
         >
           Update & Continue
-        </Button>
+        </button>
 
        
       </Form>
     </FormContainer>
+    </div>
   );
 };
 

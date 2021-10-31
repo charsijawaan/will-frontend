@@ -19,9 +19,9 @@ const Names = ({ setForm, formData, navigation, user }) => {
   } = formData;
   const { next } = navigation;
   return (
-    <div>
-      <h4 className="text-center mb-4">Requester Details</h4>
-      <div className="col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto  form p-4">
+    <div className="container">
+      <h4 className="mb-4">Requester Details</h4>
+      <div className="l-form">
         <ItemForm
           label="Requester Title"
           name="requesterTitle"
@@ -99,9 +99,10 @@ const Names = ({ setForm, formData, navigation, user }) => {
         />
 
         <div>
-          <Button variant="contained" color="primary" onClick={next}>
+          <button className="button" onClick={next}>
             Next
-          </Button>
+          </button>
+          <br />
         </div>
       </div>
     </div>

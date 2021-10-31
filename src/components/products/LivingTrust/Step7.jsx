@@ -37,11 +37,11 @@ const Step7 = ({ nextStep, prevStep, handleChange, changeState, values }) => {
     }, []);
 
     return (
-        <div style={{ padding: 30 }}>
-            <h1>Step 7</h1>
-            <h1>Charity</h1>
+        <div className="container">
+            <h4>Step 7</h4>
+            <h5>Charity</h5>
 
-            <Form>
+            <Form className="l-form">
                 {[...Array(values.step5Charities.length)].map((e, i) => (
                     <div>
                         <Form.Group>
@@ -102,7 +102,7 @@ const Step7 = ({ nextStep, prevStep, handleChange, changeState, values }) => {
             </Form>
 
             <button
-                className="btn btn-primary"
+                className="button"
                 onClick={(e) => {
                     e.preventDefault();
                     changeState(
@@ -120,7 +120,7 @@ const Step7 = ({ nextStep, prevStep, handleChange, changeState, values }) => {
             </button>
 
             <button
-                className="btn btn-primary ml-4"
+                className="button "
                 onClick={(e) => {
                     e.preventDefault();
                     changeState(
@@ -135,12 +135,13 @@ const Step7 = ({ nextStep, prevStep, handleChange, changeState, values }) => {
             </button>
 
             <br></br>
-            <button className="btn btn-primary mt-4" onClick={Previous}>
+            <button className="button" onClick={Previous}>
                 Prev
             </button>
-            <button className="btn btn-primary ml-4 mt-4" onClick={Continue}>
+            <button className="button" onClick={Continue}>
                 Next
             </button>
+            <br />
         </div>
     );
 };

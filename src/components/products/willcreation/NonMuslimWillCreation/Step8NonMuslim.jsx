@@ -22,9 +22,9 @@ const Step8NonMuslim = ({
   };
   return (
     <FormContainer>
-      <h3>Step 8: Distribution Details</h3>
+      <h4>Step 8: Distribution Details</h4>
 
-      <Form>
+      <Form className="l-form">
         {[...Array(values.step7AssetDetails?.length)].map((e, i) => (
           <div key={i + 1}>
             <h5>
@@ -261,12 +261,13 @@ const Step8NonMuslim = ({
           </div>
         ))}
       </Form>
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
-      <button className="btn btn-primary" onClick={Continue}>
+      <button className="button" onClick={Continue}>
         Next
       </button>
+      <br />
     </FormContainer>
   );
 };

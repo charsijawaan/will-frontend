@@ -15,6 +15,8 @@ import Step11NonMuslimCodicil from "./Step11NonMuslimCodicil";
 import Step12NonMuslimCodicil from "./Step12NonMuslimCodicil";
 import Step13NonMuslimCodicil from "./Step13NonMuslimCodicil";
 import Step14NonMuslimCodicil from "./Step14NonMuslimCodicil";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default class NonMuslimCodicil extends Component {
     state = {
@@ -609,6 +611,10 @@ export default class NonMuslimCodicil extends Component {
         switch (step) {
             case 0:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+                      <div className="back-button">
+                        <Link to="/products/managewill"><FaArrowLeft /></Link>
+                      </div>
                     <Step1NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -617,10 +623,11 @@ export default class NonMuslimCodicil extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
-                    />
+                    /> </div>
                 );
             case 1:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step2NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -630,9 +637,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 2:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step3NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -642,9 +651,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 3:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step4NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -654,9 +665,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 4:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step5NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -666,9 +679,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 5:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step6NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -678,9 +693,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 6:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step7NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -690,9 +707,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 7:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step8NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -702,9 +721,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 8:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step9NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -714,9 +735,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 9:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step10NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -726,9 +749,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 10:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step11NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -738,9 +763,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 11:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step12NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -750,9 +777,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 12:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step13NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -762,9 +791,11 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
             case 13:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step14NonMuslimCodicil
                         values={values}
                         nextStep={this.nextStep}
@@ -774,6 +805,7 @@ export default class NonMuslimCodicil extends Component {
                         onFileChange={this.onFileChange}
                         updateAndClose={this.updateAndClose}
                     />
+                    </div>
                 );
         }
     }

@@ -24,7 +24,7 @@ const Step14NonMuslim = ({
     <FormContainer>
       <h4 className="mb-5">Step 14: Signing Details</h4>
 
-      <Form>
+      <Form className="l-form"> 
         {[...Array(values.step14Witness.length)].map((e, i) => (
           <div key={i + 1}>
             <Form.Group controlId="name">
@@ -88,12 +88,13 @@ const Step14NonMuslim = ({
         ))}
       </Form>
 
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
-      <button className="btn btn-primary" onClick={Continue}>
+      <button className="button" onClick={Continue}>
         Next
       </button>
+      <br />
     </FormContainer>
   );
 };

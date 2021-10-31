@@ -12,6 +12,9 @@ import { v4 as uuidv4 } from "uuid";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 import axios from "axios";
 
@@ -165,12 +168,17 @@ const ManageDistributionDetailsRegWill = ({ history }) => {
     }, []);
 
   return (
+    
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+    <div className="back-button">
+      <Link onClick={history.goBack}><FaArrowLeft /></Link>
+    </div>
     <FormContainer>
       <ScrollToMount />
 
-      <h3>Step 7: Distribution Details</h3>
+      <h4>Step 7: Distribution Details</h4>
 
-      <Form noValidate validated={validated} onSubmit={submitHandler}>
+      <Form className="l-form" noValidate validated={validated} onSubmit={submitHandler}>
         <Form.Group controlId="beneficiary">
           <Form.Label>Beneficiary </Form.Label>
           <Form.Control as="select" value={beneficiary} onChange={handleChange}>
@@ -361,48 +369,43 @@ const ManageDistributionDetailsRegWill = ({ history }) => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Button
-              className="mr-3"
-              color="primary"
-              variant="contained"
+            <button
+          className="button"
               disabled={inputFields.length === 1}
               onClick={() => handleRemoveFields(inputField.id)}
             >
               Delete <RemoveIcon />
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
+            </button>
+            <button
+          className="button"
               disabled={inputFields.length === 4}
               onClick={handleAddFields}
             >
               Add More <AddIcon />
-            </Button>
+            </button>
           </div>
         ))}
 
-          <Button
-            className="mt-5 mb-5 mr-5"
-            variant="contained"
-            color="primary"
+          <button
+          className="button"
             onClick={() => {
               window.location = "/managewill/guardianregwill?will_id=" + parseURLParams(window.location.href).will_id[0];
             }}
           >
           Back
-        </Button>
-        <Button
-          className="mt-5 mb-5"
-          variant="contained"
-          color="primary"
+        </button>
+        <button
+          className="button"
           type="submit"
         >
           Update & Continue
-        </Button>
+        </button>
 
         
       </Form>
     </FormContainer>
+    <br />
+    </div>
   );
 };
 

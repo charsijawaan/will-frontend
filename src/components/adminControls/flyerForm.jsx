@@ -4,6 +4,9 @@ import auth from "../../services/adminService";
 import * as authuser from "../../services/authService";
 import Form from "react-bootstrap/Form";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
 toast.configure();
 
 const FlyerForm = () => {
@@ -31,8 +34,15 @@ const FlyerForm = () => {
   };
 
   return (
+    <div className="global-container">
+    <div className="back-button">
+      <Link to="/admin/flyer"><FaArrowLeft /></Link>
+    </div>
     <div className="container col-md-6">
-      <Form>
+      <br />
+      <h4>Create Flyer</h4>
+      <br />
+      <Form className="l-form">
         <div class="form-group">
           <label for="exampleInputEmail1">Flyer Name</label>
           <input
@@ -85,11 +95,12 @@ const FlyerForm = () => {
           </select>
         </div>
         <div>
-          <Button variant="contained" color="primary" onClick={handleSubmit}>
+          <button className="button" onClick={handleSubmit}>
             Upload Flyer
-          </Button>
+          </button>
         </div>
       </Form>
+    </div>
     </div>
   );
 };

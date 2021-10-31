@@ -5,8 +5,11 @@ import axios from "axios";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 const ViewAllVoucherInvoices = ({ user }) => {  
+    let history = useHistory();
 
     const [vouchers, setVouchers] = React.useState([]);
 
@@ -108,17 +111,19 @@ const ViewAllVoucherInvoices = ({ user }) => {
     }
 
     return (
-        <div className="container">
-            <Button component={Link} to="/admin/create-invoice" color="primary" variant="contained">Generate B2B voucher invoice</Button>
-            <h5 className="mb-5">Showing Transaction List </h5>
+        <div className="global-container bg-fixed" style={{backgroundAttachment:"fixed"}}>
+          <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+          </div>
+        <div className="container"><h4 className="mb-5">Showing Transaction List </h4>
+            <Link to="/admin/create-invoice" ><button className="button">Generate B2B voucher invoice</button></Link>
+            
             <CDataTable
                 items={vouchers}
                 fields={fields}
                 columnFilter
                 tableFilter
-                itemsPerPageSelect
-                itemsPerPage={5}
-                hover
+                itemsPerPage={10}
                 sorter
                 pagination
                 scopedSlots={{
@@ -127,17 +132,17 @@ const ViewAllVoucherInvoices = ({ user }) => {
                             <div>
                                 {item.paymentNumber.length > 0 && 
                                 <td className="py-2">
-                                    <CButton color="primary" variant="outline" shape="square" size="sm" href={"view_transaction_pdf?t_id=" + item._id}>View Invoice PDF</CButton>
+                                    <CButton color="primary" className="button button-b" shape="square" size="sm" href={"view_transaction_pdf?t_id=" + item._id}>View Invoice PDF</CButton>
                                 </td>
                                 }
                                 {item.paymentNumber.length < 1 &&                                 
                                 <div style={{display: "flex"}}>
                                     <td className="py-2">
-                                        <CButton color="primary" variant="outline" shape="square" size="sm">View Invoice PDF</CButton>
+                                        <CButton color="primary"  className="button button-b" shape="square" size="sm">View Invoice PDF</CButton>
                                     </td>
                                     <input type="number" id={"p_input_id" + index} />
                                     <td className="py-2">
-                                        <CButton color="primary" variant="outline" shape="square" size="sm" 
+                                        <CButton color="primary"  className="button button-b" shape="square" size="sm" 
                                             onClick={() => {
                                                 assignPaymentNumber(item, document.getElementById("p_input_id"+index));
                                             }}>
@@ -151,6 +156,7 @@ const ViewAllVoucherInvoices = ({ user }) => {
                     },
                 }}
             />
+            </div>
         </div>
     );
 };

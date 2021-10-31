@@ -14,10 +14,10 @@ const Step2 = ({ nextStep, prevStep, handleChange, values }) => {
     }
 
     return (
-        <div  style={{padding: 30}}>
-            <h1>Step 2</h1>
+        <div className="container">
+            <h4>Step 2</h4>
             
-            <Form>
+            <Form  className="l-form"> 
 
                 {/* Type of Donor */}
                 <Form.Group>
@@ -106,9 +106,9 @@ const Step2 = ({ nextStep, prevStep, handleChange, values }) => {
 
             </Form>
 
-            <button className="btn btn-primary" onClick={Previous} >Prev</button>
-            <button className="btn btn-primary ml-4" onClick={Continue}>Next</button>
-            
+            <button className="button" onClick={Previous} >Prev</button>
+            <button className="button" onClick={Continue}>Next</button>
+            <br />
         </div>
     )
 }

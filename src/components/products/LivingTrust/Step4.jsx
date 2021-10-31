@@ -21,11 +21,11 @@ const Step4 = ({
     };
 
     return (
-        <div style={{ padding: 30 }}>
-            <h1>Step 4</h1>
-            <h1>Gift and Asset</h1>
+        <div className="container">
+            <h4>Step 4</h4>
+            <h5>Gift and Asset</h5>
 
-            <Form>
+            <Form className="l-form">
                 {[...Array(values.step4GiftsCount)].map((e, i) => (
                     <div>
                         {/* What Type of Asset */}
@@ -743,7 +743,7 @@ const Step4 = ({
                 ))}
 
                 <button
-                    className="btn btn-primary"
+                    className="button"
                     onClick={(e) => {
                         e.preventDefault();
                         changeState(
@@ -798,7 +798,7 @@ const Step4 = ({
                 </button>
 
                 <button
-                    className="btn btn-primary ml-4"
+                    className="button"
                     onClick={(e) => {
                         e.preventDefault();
                         changeState(
@@ -813,12 +813,13 @@ const Step4 = ({
                 </button>
             </Form>
 
-            <button className="btn btn-primary mt-4" onClick={Previous}>
+            <button className="button" onClick={Previous}>
                 Prev
             </button>
-            <button className="btn btn-primary ml-4 mt-4" onClick={Continue}>
+            <button className="button" onClick={Continue}>
                 Next
             </button>
+            <br />
         </div>
     );
 };

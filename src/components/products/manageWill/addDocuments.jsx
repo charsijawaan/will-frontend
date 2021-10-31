@@ -3,6 +3,8 @@ import { Form, Button } from "react-bootstrap";
 import { savePersonalDetails, removeLatestWillFromLocalStorage } from "../../../actions/formActions";
 import { useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 function parseURLParams(url) {
     var queryStart = url.indexOf("?") + 1,
@@ -47,7 +49,13 @@ const AddDocuments = ({ history }) => {
 
 
     return (
-        <Form onSubmit={submitHandler} Validate>
+        <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+          <div className="back-button">
+            <Link to="/products/managewill"><FaArrowLeft /></Link>
+          </div>
+        <div className="container">
+            <h4>Add a Document</h4>
+        <Form className="l-form" onSubmit={submitHandler} Validate>
             <Form.Group>
                 <Form.Label>Document Name</Form.Label>
                 <Form.Control type="text" placeholder="Document Name" onChange={(e) => {setName(e.target.value)}} value={name} required />
@@ -73,10 +81,12 @@ const AddDocuments = ({ history }) => {
                 <Form.Control type="file" onChange={(e) => {setFile(e.target.files[0])}} required />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <button className="button" type="submit">
                 Add
-            </Button>
-        </Form>    
+            </button>
+        </Form>
+        </div>
+        </div>    
     );
 };
 

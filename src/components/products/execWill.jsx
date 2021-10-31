@@ -5,8 +5,12 @@ import * as auth from "../../services/authService";
 import * as admin from "../../services/adminService";
 import { PaystackButton } from "react-paystack";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 toast.configure();
 const ExecWillForm = () => {
+  let history = useHistory();
   const [showField, setShowField] = useState();
   const [willRegNo, setRegNo] = useState();
   const [willOwnerName, setWillOwnerName] = useState("");
@@ -104,6 +108,7 @@ const ExecWillForm = () => {
   };
   const componentProps = {
     ...config,
+    className: "button",
     text: "Payment",
     onSuccess: (email) => handlePaystackSuccessAction(email),
     onClose: handlePaystackCloseAction,
@@ -231,15 +236,19 @@ const ExecWillForm = () => {
     }
   };
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <div className="container">
-      <Form>
+      <Form className="l-form">
         <h4>Executor Will Request Form</h4>
-        <div className="row">
-          <div className="col-md-6">
+        <div >
+          <div   >
             <label>Do you have reg no?</label>
           </div>
           <div classname="col">
-            <select onChange={handleChange}>
+            <select onChange={handleChange} className="form-control">
               <option>Please Select One</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -248,13 +257,14 @@ const ExecWillForm = () => {
         </div>
         <br />
         {showField && (
-          <div className="row">
-            <div className="col-md-6">
+          <div >
+            <div   >
               <label>Will Registeration Number</label>
             </div>
 
             <input
               name="willRegNo"
+              className="form-control"
               onChange={(e) => {
                 setRegNo(e.target.value);
               }}
@@ -264,35 +274,38 @@ const ExecWillForm = () => {
         <br />
         {!showField && (
           <div>
-            <div className="row">
-              <div className="col-md-6">
+            <div >
+              <div   >
                 <label>Name of Will Owner</label>
               </div>
               <input
                 name="willName"
+                className="form-control"
                 onChange={(e) => {
                   setWillOwnerName(e.target.value);
                 }}
               />
             </div>
-            <div className="row">
-              <div className="col-md-6">
+            <div >
+              <div   >
                 <label>Phone of Will Owner</label>
               </div>
               <input
                 name="ph"
+                className="form-control"
                 type="number"
                 onChange={(e) => {
                   setWillOwnerPh(e.target.value);
                 }}
               />
             </div>
-            <div className="row">
-              <div className="col-md-6">
+            <div >
+              <div   >
                 <label>DOB of Will Owner</label>
               </div>
               <input
                 type="date"
+                className="form-control"
                 name="dob"
                 onChange={(e) => {
                   setDob(e.target.value);
@@ -302,60 +315,66 @@ const ExecWillForm = () => {
           </div>
         )}
 
-        <div className="row">
-          <div className="col-md-6">
+        <div >
+          <div   >
             <label>Relationship with Will Owner</label>
           </div>
           <input
             name="relationship"
+            className="form-control"
             onChange={(e) => {
               setRel(e.target.value);
             }}
           />
         </div>
         <br />
-        <div className="row">
-          <div className="col-md-6">
+        <div >
+          <div   >
             <label>Reasons for Request</label>
           </div>
           <input
             name="reasons"
+            className="form-control"
             onChange={(e) => {
               setReasons(e.target.value);
             }}
           />
         </div>
         <br />
-        <div className="row">
-          <div className="col-md-6">
+        <div >
+          <div   >
             <label>Executor Name</label>
           </div>
           <input
             name="execName"
+            className="form-control"
             onChange={(e) => {
               setExecName(e.target.value);
             }}
           />
         </div>
         <br />
-        <div className="row">
-          <div className="col-md-6">
+        <div >
+          <div   >
             <label>Executor Email Address</label>
           </div>
           <input
             name="execEmail"
+            className="form-control"
+
             onChange={(e) => {
               setExecEmail(e.target.value);
             }}
           />
         </div>
         <br />
-        <div className="row">
-          <div className="col-md-6">
+        <div >
+          <div   >
             <label>Executor Phone Number</label>
           </div>
           <input
             name="execPh"
+              className="form-control"
             onChange={(e) => {
               setExecPhNo(e.target.value);
             }}
@@ -363,20 +382,21 @@ const ExecWillForm = () => {
         </div>
         <br />
 
-        <div className="row">
-          <div className="col-md-6">
+        <div >
+          <div   >
             <label>Promotion Code</label>
           </div>
           <input
             name="code"
+            className="form-control"
             onChange={(e) => {
               setCode(e.target.value);
             }}
           />
         </div>
         <br />
-        <div className="row">
-          <div className="col-md-6">
+        <div >
+          <div   >
             <label>Requster Selfie Image</label>
           </div>
           <input
@@ -390,18 +410,16 @@ const ExecWillForm = () => {
 
         <br />
 
-        <Button
-          className="mb-4"
-          variant="contained"
-          color="primary"
+        <button
+          className="button"
           onClick={handleSubmit}
         >
           Submit
-        </Button>
+        </button>
         <div>
-          <Button variant="contained" color="primary" onClick={calculateAmount}>
+          <button  className="button" onClick={calculateAmount}>
             Checkout
-          </Button>
+          </button>
         </div>
       </Form>
       {show && (
@@ -412,8 +430,10 @@ const ExecWillForm = () => {
           Total amount: {amount}
           <br />
           <PaystackButton {...componentProps} />
+          <br />
         </div>
       )}
+    </div>
     </div>
   );
 };

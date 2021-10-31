@@ -38,7 +38,7 @@ const Step4NonMuslim = ({
         sharing formula.
       </Form.Label>
 
-      <Form>
+      <Form className="l-form">
         {[...Array(values.wivesDetails.length)].map((e, i) => (
           <div key={i + 1}>
             <Form.Group controlId="name">
@@ -171,12 +171,13 @@ const Step4NonMuslim = ({
           </div>
         ))}
 
-        <button className="btn btn-primary" onClick={Previous}>
+        <button className="button" onClick={Previous}>
           Prev
         </button>
-        <button className="btn btn-primary" onClick={Continue}>
+        <button className="button" onClick={Continue}>
           Next
         </button>
+        <br />
       </Form>
     </FormContainer>
   );

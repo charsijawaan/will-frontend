@@ -364,6 +364,38 @@ hr{
 {
   background-color:#ea4c89
 }
+
+.button {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+  text-align: left;
+}
+
+.button:active,
+.button:focus,
+.button:hover {
+	border-color: #6A679E;
+	outline: none;
+}
+legend.form-label {
+  padding: 20px;
+  font-size: 16px;
+  background: beige;
+  color: #3f51b5 !important;
+}
 @media (max-width:767px)
 {
   .social-icons li.title

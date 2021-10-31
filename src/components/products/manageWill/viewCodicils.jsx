@@ -3,6 +3,8 @@ import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Popup from "./popup";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 function parseURLParams(url) {
   var queryStart = url.indexOf("?") + 1,
@@ -51,9 +53,14 @@ export default class ViewCodicils extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Codicil's Table</h3>
-        <table className="table">
+      
+      <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+        <div className="back-button">
+          <Link to="/products/managewill"><FaArrowLeft /></Link>
+        </div>
+      <div className="container">
+        <h4>Codicil's Table</h4>
+        <table className="table table-wills">
           {/* Header */}
           <tr>
             <th>#</th>
@@ -83,6 +90,7 @@ export default class ViewCodicils extends React.Component {
           })}
         </table>
       </div>
+      </div>  
     );
   }
 }

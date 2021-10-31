@@ -15,6 +15,8 @@ import Step12NonMuslim from "./Step12NonMuslim";
 import Step13NonMuslim from "./Step13NonMuslim";
 import Step14NonMuslim from "./Step14NonMuslim";
 import Step15NonMuslim from "./Step15NonMuslim";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default class NonMuslimWillCreation extends Component {
     state = {
@@ -340,6 +342,10 @@ export default class NonMuslimWillCreation extends Component {
         switch (step) {
             case 0:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+                    <div className="back-button">
+                      <Link to="/individualProducts"><FaArrowLeft /></Link>
+                    </div>
                     <Step1NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -348,9 +354,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 1:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step2NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -359,9 +367,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 2:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step3NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -370,9 +380,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 3:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step4NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -381,9 +393,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 4:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step5NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -392,9 +406,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 5:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step6NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -403,9 +419,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 6:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step7NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -414,9 +432,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 7:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step8NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -425,9 +445,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 8:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step9NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -436,9 +458,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 9:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step10NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -447,9 +471,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 10:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step11NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -458,9 +484,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 11:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step12NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -469,9 +497,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 12:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step13NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -480,9 +510,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 13:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step14NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -491,9 +523,11 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
             case 14:
                 return (
+                    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
                     <Step15NonMuslim
                         values={values}
                         nextStep={this.nextStep}
@@ -502,6 +536,7 @@ export default class NonMuslimWillCreation extends Component {
                         changeState={this.changeState}
                         onFileChange={this.onFileChange}
                     />
+                    </div>
                 );
         }
     }

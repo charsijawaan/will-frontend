@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import * as admin from "../../services/adminService";
 import { CButton, CDataTable } from "@coreui/react";
 import Button from "@material-ui/core/Button";
+import "../Styling/table.css"
 import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 const Flyer = () => {
+  
+  let history = useHistory();
   const [flyers, setflyers] = useState([]);
 
   const getData = () => {
@@ -27,7 +32,7 @@ const Flyer = () => {
   obj.forEach(([key, value]) => arr.push(value));
   const fields = [
     { key: "name", label: "Flyer Name" },
-    { key: "img", label: "Flyer Image" },
+    { key: "img", label: "Flyer Image"},
     { key: "type", label: "Flyer Type" },
     { key: "description", label: "Flyer Description" },
     { key: "createdOn", label: "Date Uploaded" },
@@ -56,26 +61,27 @@ const Flyer = () => {
   ];
 
   return (
+    <div className="global-container">
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <div className="container">
+    <br />
+    <h4>Manage Flyers</h4>
+    <br />
       <div>
-        <Button
-          variant="contained"
-          color="primary"
-          component={Link}
-          to="/admin/create-flyer"
-        >
-          Upload Flyer
-        </Button>
+        <Link to="/admin/create-flyer">
+        <button className="button">Upload Flyer </button>
+        </Link>
+    <br />
       </div>
       <CDataTable
         items={arr[1]}
         fields={fields}
         columnFilter
+        responsive
         tableFilter
-        footer
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -84,7 +90,7 @@ const Flyer = () => {
               <td className="py-2">
                 <CButton
                   color="primary"
-                  variant="outline"
+                  className="button button-b"
                   shape="square"
                   size="sm"
                   onClick={(e) => {
@@ -102,7 +108,7 @@ const Flyer = () => {
               <td className="py-2">
                 <CButton
                   color="primary"
-                  variant="outline"
+                  className="button button-b"
                   shape="square"
                   size="sm"
                   onClick={() => {
@@ -119,7 +125,7 @@ const Flyer = () => {
               <td className="py-2">
                 <CButton
                   color="primary"
-                  variant="outline"
+                  className="button button-b"
                   shape="square"
                   size="sm"
                   onClick={() => {
@@ -141,6 +147,7 @@ const Flyer = () => {
           },
         }}
       />
+    </div>
     </div>
   );
 };

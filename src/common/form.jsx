@@ -62,7 +62,7 @@ class Form extends Component {
 
   renderButton(label) {
     return (
-      <button className="btn btn-warning" onClick>
+      <button className="button login__submit" onClick>
         {label}
       </button>
     );
@@ -75,10 +75,11 @@ class Form extends Component {
         type={type}
         name={name}
         value={data[name]}
-        label={label}
+        // label={label}
         placeholder={label}
         onChange={this.handleChange}
         error={errors[name]}
+        className="login__input"
       />
     );
   }

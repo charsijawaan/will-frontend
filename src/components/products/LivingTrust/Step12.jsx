@@ -108,6 +108,7 @@ const Step12 = ({
 
     const componentProps = {
         ...config,
+        className: "button",
         text: "Checkout",
         onSuccess: (email) => handlePaystackSuccessAction(email),
     };
@@ -441,23 +442,24 @@ const Step12 = ({
     };
 
     return (
-        <div style={{ padding: 30 }}>
-            <h1>Step 12</h1>
-            <h1>Signature and Selfie</h1>
+        <div className="container">
+            <h4>Step 12</h4>
+            <h5>Signature and Selfie</h5>
 
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div style={{}}>
                 <SignatureCanvas
                     ref={sigCanvas}
                     penColor="green"
                     canvasProps={{
                         width: 300,
-                        height: 100,
+                        height: 200,
                         className: "sigCanvas",
                     }}
                 />
+                <div style={{display: "flex"}}>
                 <button
-                    className="btn btn-primary ml-2"
-                    style={{ height: 50 }}
+                    className="button"
+                    style={{ marginRight: 20 }}
                     onClick={() => {
                         clear(sigCanvas);
                     }}
@@ -465,14 +467,15 @@ const Step12 = ({
                     Clear
                 </button>
                 <button
-                    className="btn btn-primary ml-2"
-                    style={{ height: 50 }}
+                    className="button"
                     onClick={() => {
                         save(sigCanvas, "signature");
                     }}
                 >
                     Save
                 </button>
+                </div>
+                <br />
             </div>
 
             <h5>Selfie</h5>
@@ -485,7 +488,7 @@ const Step12 = ({
                 }}
             ></input>
 
-            <h5>Signature of Grantor</h5>
+            <h6>Signature of Grantor</h6>
             <div style={{ display: "flex", alignItems: "center" }}>
                 <input
                     style={{ display: "block", marginBottom: 15 }}
@@ -497,7 +500,7 @@ const Step12 = ({
                 ></input>
             </div>
 
-            <h5>Signature of Trustee</h5>
+            <h6>Signature of Trustee</h6>
             <div style={{ display: "flex", alignItems: "center" }}>
                 <input
                     style={{ display: "block", marginBottom: 15 }}
@@ -509,7 +512,7 @@ const Step12 = ({
                 ></input>
             </div>
 
-            <h5>Signature of Successor</h5>
+            <h6>Signature of Successor</h6>
             <div style={{ display: "flex", alignItems: "center" }}>
                 <input
                     style={{ display: "block", marginBottom: 15 }}
@@ -557,10 +560,11 @@ const Step12 = ({
                 </Form.Group>
             </Form>
 
-            <div style={{ display: "flex", alignItems: "baseline" }}>
-                <p className="mr-2">Enter Promotion Code</p>
+            <div >
+                <p >Enter Promotion Code</p>
                 <input
                     value={promoCode}
+                    className="form-control"
                     onChange={(e) => {
                         setPromoCode(e.target.value);
                     }}
@@ -568,13 +572,14 @@ const Step12 = ({
             </div>
 
             <div className="mb-2">
-                <button className="btn btn-primary" onClick={calAmount}>
+                <button className="button" onClick={calAmount}>
                     Calculate
                 </button>
+                <br />
                 <input
                     type="numer"
                     disabled
-                    className="ml-2"
+                    className="form-control"
                     value={actualPrice}
                 ></input>
             </div>
@@ -588,10 +593,11 @@ const Step12 = ({
                 <br />
             </div>
 
-            <button className="btn btn-primary" onClick={Previous}>
+            <button className="button" onClick={Previous}>
                 Prev
             </button>
             <PaystackButton {...componentProps} />
+            <br />
         </div>
     );
 };

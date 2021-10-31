@@ -30,14 +30,12 @@ const ProductsList = () => {
   ];
   return (
     <div className="container">
-      <h5 className="mb-5">Showing Products Listing </h5>
       <CDataTable
         items={arr[1]}
         fields={fields}
         columnFilter
         tableFilter
-        itemsPerPage={6}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
       />

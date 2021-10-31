@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import * as auth from "../../services/adminService";
 import { CButton, CDataTable, CCollapse, CCardBody } from "@coreui/react";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 toast.configure();
 const ManageUsers = () => {
+  let history = useHistory();
   const [users, setUsers] = React.useState();
   const [details, setDetails] = useState([]);
 
@@ -89,16 +94,21 @@ const ManageUsers = () => {
   };
 
   return (
+    <div className="global-container bg-fixed" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <div className="container">
+      
+      <br />
+      <h4>Manage Users</h4>
+      <br />
       <CDataTable
         items={arr}
         fields={fields}
         columnFilter
         tableFilter
-        footer
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -109,6 +119,7 @@ const ManageUsers = () => {
                   color="primary"
                   shape="square"
                   size="sm"
+                  className="button button-b"
                   onClick={() => handleDisableUser(item._id)}
                 >
                   Deactivate
@@ -123,6 +134,7 @@ const ManageUsers = () => {
                   color="primary"
                   shape="square"
                   size="sm"
+                  className="button button-b"
                   onClick={() => handleActivateUser(item._id)}
                 >
                   Activate
@@ -137,6 +149,7 @@ const ManageUsers = () => {
                   color="primary"
                   shape="square"
                   size="sm"
+                  className="button button-b"
                   onClick={() => {
                     toggleDetails(index);
                   }}
@@ -171,6 +184,7 @@ const ManageUsers = () => {
           },
         }}
       />
+    </div>
     </div>
   );
 };

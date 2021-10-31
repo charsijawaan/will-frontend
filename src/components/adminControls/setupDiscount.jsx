@@ -4,6 +4,9 @@ import { toast } from "react-toastify";
 import * as auth from "../../services/adminService";
 import * as user from "../../services/authService";
 import { CButton, CDataTable } from "@coreui/react";
+import { Link } from "react-router-dom";
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
 
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
@@ -110,73 +113,70 @@ const SetupDiscount = ({ history }) => {
   };
 
   return (
+    <div className="global-container bg-fixed" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link to="/adminhome"><FaArrowLeft /></Link>
+      </div>
     <div className="container">
+      <br />
       <h4>Setup Discount</h4>
-      <div className="row">
+      <br />
+      <div className="l-form">
+      {/* <div className="row">
         <div className="col-md-6">
           <label>Type</label>
         </div>
         <div className="col">
           <select onChange={handleChange}>
             <option>Please Select One</option>
-            <option value="Yes">Employee Voucher</option>
+            <option value="Yes" defaultValue >Employee Voucher</option>
             {/* <option value="Will Ambassador">Will Ambassador</option>
             <option value="Will Ambassador B2B Discount">
               Will Ambassador B2B Discount
             </option>
             <option value="Organisation User B2B Discount">
               Organisation User B2B Discount
-            </option> */}
+            </option>
           </select>
         </div>
-      </div>
+      </div> */}
       <br />
-      {showFields && (
         <div>
-          <div className="row">
-            <div className="col-md-6">
               <label>From No Quantity</label>
-            </div>
-
             <input
               name="fromNoQty"
+              className="login__input form-control"
+              type="number"
               onChange={(e) => {
                 setfromNoQty(e.target.value);
               }}
             />
-          </div>
+            <br />
           <br />
-          <div className="row">
-            <div className="col-md-6">
               <label>To No Quantity</label>
-            </div>
-
             <input
               name="fromNoQty"
+              className="login__input form-control"
+              type="number"
               onChange={(e) => {
                 settoNoQty(e.target.value);
               }}
             />
-          </div>
           <br />
-          <div className="row">
-            <div className="col-md-6">
+          <br />
               <label>Amount</label>
-            </div>
-
             <input
               name="amount"
+              className="login__input form-control"
+              type="number"
               onChange={(e) => {
                 setAmount(e.target.value);
               }}
             />
-          </div>
         </div>
-      )}
       <br />
 
-      <div>
-        {!showFields && (
+        {/* {!showFields && (
           <>
             <div className="row">
               <div className="col-md-6">
@@ -203,31 +203,27 @@ const SetupDiscount = ({ history }) => {
               />
             </div>
           </>
-        )}
+        )} */}
 
         <br />
 
-        <Button
-          className="mb-4"
-          variant="contained"
-          color="primary"
+        <button
+          className="button button-b"
           onClick={handleSubmit}
         >
-          Setup Discount
-        </Button>
+          Add price for Voucher
+        </button>
       </div>
 
       <br />
       <h4 className="text-center mb-5">Already Setup Discounts</h4>
-      <h6 className="mb-3">Discount Table 1</h6>
+      <h4 className="mb-3">Discount Table</h4>
       <CDataTable
         items={filter2}
         fields={fields}
         columnFilter
         tableFilter
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -254,8 +250,8 @@ const SetupDiscount = ({ history }) => {
               <td className="py-2">
                 <CButton
                   color="primary"
-                  variant="outline"
                   shape="square"
+                  className="button button-b"
                   size="sm"
                   onClick={() => {
                     history.push("/edit-discount/" + item.discountCode);
@@ -269,18 +265,15 @@ const SetupDiscount = ({ history }) => {
         
         }}
       />
-      <h6 className="mb-3" style={{ marginTop: "30px" }}>
-        Discount Table 2
-      </h6>
+      <h4 className="mb-3" style={{ marginTop: "30px" }}>
+        Employees Voucher Pricing
+      </h4>
       <CDataTable
         items={filter1}
         fields={fields1}
         columnFilter
         tableFilter
-        footer
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -289,9 +282,9 @@ const SetupDiscount = ({ history }) => {
               <td className="py-2">
                 <CButton
                   color="primary"
-                  variant="outline"
                   shape="square"
                   size="sm"
+                  className="button button-b"
                   onClick={(e) => {
                     auth.removeDiscount(item._id);
                     window.location.reload();
@@ -307,9 +300,9 @@ const SetupDiscount = ({ history }) => {
               <td className="py-2">
                 <CButton
                   color="primary"
-                  variant="outline"
                   shape="square"
                   size="sm"
+                  className="button button-b"
                   onClick={() => {
                     history.push("/edit-discount/" + item.discountCode);
                   }}
@@ -322,6 +315,7 @@ const SetupDiscount = ({ history }) => {
          
         }}
       />
+    </div>
     </div>
   );
 };

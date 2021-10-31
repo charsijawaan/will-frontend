@@ -14,11 +14,11 @@ const Step5 = ({ nextStep, prevStep, handleChange, changeState, values }) => {
     };
 
     return (
-        <div style={{ padding: 30 }}>
-            <h1>Step 5</h1>
-            <h1>Beneficiary Names</h1>
+        <div className="container">
+            <h4>Step 5</h4>
+            <h5>Beneficiary Names</h5>
 
-            <Form>
+            <Form className="l-form">
                 <p>
                     Name of Beneficiaries (Family, Friends, Charity) who will
                     receive the trust property you pass away. Gift can be (1)
@@ -86,7 +86,7 @@ const Step5 = ({ nextStep, prevStep, handleChange, changeState, values }) => {
                         ))}
 
                         <button
-                            className="btn btn-primary"
+                            className="button"
                             onClick={(e) => {
                                 e.preventDefault();
                                 values.step4Gifts[i].beneficiaries.push({
@@ -99,7 +99,7 @@ const Step5 = ({ nextStep, prevStep, handleChange, changeState, values }) => {
                             Add Another
                         </button>
                         <button
-                            className="btn btn-primary ml-4"
+                            className="button"
                             onClick={(e) => {
                                 e.preventDefault();
                                 values.step4Gifts[i].beneficiaries.pop();
@@ -119,12 +119,13 @@ const Step5 = ({ nextStep, prevStep, handleChange, changeState, values }) => {
                 ))}
             </Form>
 
-            <button className="btn btn-primary mt-4" onClick={Previous}>
+            <button className="button" onClick={Previous}>
                 Prev
             </button>
-            <button className="btn btn-primary ml-4 mt-4" onClick={Continue}>
+            <button className="button" onClick={Continue}>
                 Next
             </button>
+            <br />
         </div>
     );
 };

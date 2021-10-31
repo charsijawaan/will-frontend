@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "./FormContainer";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 const WillCreationForm = ({ history }) => {
   const [condition1, setCondition1] = useState();
@@ -45,14 +48,18 @@ const WillCreationForm = ({ history }) => {
   };
 
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <FormContainer>
-      <h3>Step1</h3>
+      <h4>Step 1</h4>
 
-      <Form noValidate validated={validated} onSubmit={submitHandler}>
+      <Form noValidate validated={validated} onSubmit={submitHandler} className="l-form" >
         <Form.Group controlId="conditions">
           <Form.Label>
-            In order for the will to be legally binding, the conditions below
-            must be met. Confirm the following
+            <h5>In order for the will to be legally binding, the conditions below
+            must be met. Confirm the following</h5>
           </Form.Label>
           <Form.Check
             value={condition1}
@@ -132,11 +139,12 @@ const WillCreationForm = ({ history }) => {
           </Form.Group>
         )}
 
-        <Button type="submit" variant="primary">
+        <button className="button">
           Save Progress & Continue
-        </Button>
+        </button>
       </Form>
     </FormContainer>
+    </div>
   );
 };
 

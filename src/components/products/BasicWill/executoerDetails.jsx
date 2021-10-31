@@ -16,8 +16,9 @@ const Address = ({ setForm, formData, navigation }) => {
   const { previous, next } = navigation;
 
   return (
-    <div className="col-xl-8 col-lg-6 col-md-8 col-sm-10 mx-auto  form p-4">
-      <h3>Executor Details</h3>
+    <div className="container">
+      <h4>Executor Details</h4>
+      <div className="l-form">
       <ItemForm
         label="Executor name"
         name="executorName"
@@ -63,17 +64,17 @@ const Address = ({ setForm, formData, navigation }) => {
       />
 
       <div>
-        <Button
-          className="m-3"
-          variant="contained"
-          color="primary"
+        <button
+        className="button"
           onClick={previous}
         >
           Previous
-        </Button>
-        <Button variant="contained" color="primary" onClick={next}>
+        </button>
+        <button className="button" onClick={next}>
           Next
-        </Button>
+        </button>
+        <br />
+        </div>
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ const Step15Muslim = ({
     <FormContainer>
       <h4 className="mb-5">Step 15: Signing Details</h4>
 
-      <Form>
+      <Form className="l-form">
         {[...Array(values.signingDetails.length)].map((e, i) => (
           <div key={i + 1}>
             <Form.Group controlId="name">
@@ -45,10 +45,8 @@ const Step15Muslim = ({
               ></Form.Control>
             </Form.Group>
 
-            <Button
-              className="mr-3"
-              color="primary"
-              variant="contained"
+            <button
+              className="button"
               disabled={values.signingDetails.length === 2}
               onClick={(e) => {
                 var temp = [...values.signingDetails];
@@ -65,12 +63,11 @@ const Step15Muslim = ({
             >
               Delete
               <RemoveIcon />
-            </Button>
+            </button>
 
-            <Button
+            <button
               disabled={values.signingDetails.length === 4}
-              variant="contained"
-              color="primary"
+              className="button"
               onClick={(e) => {
                 console.log(values.signingDetails);
                 e.preventDefault();
@@ -87,7 +84,7 @@ const Step15Muslim = ({
             >
               Add More
               <AddIcon />
-            </Button>
+            </button>
             <hr
               style={{
                 marginBottom: "3rem",
@@ -98,12 +95,13 @@ const Step15Muslim = ({
           </div>
         ))}
       </Form>
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
-      <button className="btn btn-primary" onClick={Continue}>
+      <button className="button" onClick={Continue}>
         Next
       </button>
+      <br />
     </FormContainer>
   );
 };

@@ -6,6 +6,9 @@ import { Form } from "react-bootstrap";
 import { saveChildrenDetails, removeLatestWillFromLocalStorage } from "../../../actions/formActions";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import FormContainer from "./../willcreation/FormContainer";
@@ -44,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ManageChildrenRegWill = () => {
+  let history = useHistory();
   const dispatch = useDispatch();
 
   const classes = useStyles();
@@ -103,10 +107,14 @@ const ManageChildrenRegWill = () => {
     }, []);
 
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <FormContainer>
       <h4 className="mb-5"> Step5: Children</h4>
 
-      <Form className={classes.root} onSubmit={handleSubmit}>
+      <Form className="l-form" onSubmit={handleSubmit}>
         {inputFields.map((inputField) => (
           <div key={inputField.id}>
             <Form.Group controlId="name">
@@ -123,50 +131,45 @@ const ManageChildrenRegWill = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Button
-              className="mr-3"
-              color="primary"
-              variant="contained"
+            <button
+              className="button"
               disabled={inputFields.length === 1}
               onClick={() => handleRemoveFields(inputField.id)}
             >
               Delete <RemoveIcon />
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
+            </button>
+            <button
+          className="button"
               disabled={inputFields.length === 4}
               onClick={handleAddFields}
             >
               Add More <AddIcon />
-            </Button>
+            </button>
           </div>
         ))}
 
-          <Button
-            className="mt-5 mb-5 mr-5"
-            variant="contained"
-            color="primary"
+          <button
+          className="button"
             onClick={() => {
               window.location = "/managewill/executorregwill?will_id=" + parseURLParams(window.location.href).will_id[0];
             }}
         >
           Back
-        </Button>
+        </button>
 
-        <Button
-          className="mt-5 mb-5"
-          variant="contained"
-          color="primary"
+        <button
+          className="button"
           type="submit"
           onClick={handleSubmit}
         >
           Update & Continue
-        </Button>
+        </button>
 
         
       </Form>
+      <br />
     </FormContainer>
+    </div>
   );
 };
 

@@ -27,10 +27,8 @@ const Step10Muslim = ({
 
   return (
     <FormContainer>
-      <h3>Step 10: Allocation of Estate (In order of Priority)</h3>
-
-      <Form>
-        <Form.Label
+      <h4>Step 10: Allocation of Estate (In order of Priority)</h4>
+      <Form.Label
           as="legend"
           className="text-center mt-5 mb-5"
           style={{ backgroundColor: "beige" }}
@@ -39,6 +37,8 @@ const Step10Muslim = ({
           is defaulted as below but can be changed to suit your order of
           priority
         </Form.Label>
+      <Form >
+        
 
         {[...Array(values.priorityArray.length)].map((e, i) => (
           <div key={i + 1} style={{ display: "flex" }}>
@@ -86,12 +86,13 @@ const Step10Muslim = ({
           </div>
         ))}
       </Form>
-      <button className="btn btn-primary" onClick={Previous}>
+      <button className="button" onClick={Previous}>
         Prev
       </button>
-      <button className="btn btn-primary" onClick={Continue}>
+      <button className="button" onClick={Continue}>
         Next
       </button>
+      <br />
     </FormContainer>
   );
 };

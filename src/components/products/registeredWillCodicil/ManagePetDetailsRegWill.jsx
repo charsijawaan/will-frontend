@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import ScrollToMount from "./../willcreation/ScrollToMount";
 import FormContainer from "./../willcreation/FormContainer";
 import { createForm, savePetDetails, removeLatestWillFromLocalStorage } from "../../../actions/formActions";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 import axios from "axios";
 
@@ -102,12 +104,16 @@ const ManagePetDetailsRegWill = ({ history }) => {
     }, []);
 
   return (
+    <div className="global-container" style={{backgroundAttachment:"fixed"}}>
+      <div className="back-button">
+        <Link onClick={history.goBack}><FaArrowLeft /></Link>
+      </div>
     <FormContainer>
       <ScrollToMount />
 
-      <h3>Step 12: Pets</h3>
+      <h4>Step 12: Pets</h4>
 
-      <Form noValidate validated={validated} onSubmit={submitHandler}>
+      <Form className="l-form" noValidate validated={validated} onSubmit={submitHandler}>
         <Form.Group controlId="giftToPet">
           <Form.Label>Any gift to Pet?</Form.Label>
           <Form.Control
@@ -221,23 +227,22 @@ const ManagePetDetailsRegWill = ({ history }) => {
           </>
         )}
 
-          <Button
-            className="mt-5 mb-5 mr-5"
-            variant="contained"
-            color="primary"
+          <button className="button"
             onClick={() => {
               window.location.href = "/managewill/othersregwill?will_id=" + parseURLParams(window.location.href).will_id[0];
             }}
           >
           Back
-        </Button>
-        <Button type="submit" variant="primary">
+        </button>
+        <button type="submit" className="button">
           Update & Continue
-        </Button>
+        </button>
 
         
       </Form>
+      <br />
     </FormContainer>
+    </div>
   );
 };
 

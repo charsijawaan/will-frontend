@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 function parseURLParams(url) {
     var queryStart = url.indexOf("?") + 1,
@@ -74,7 +76,11 @@ export default class ViewLivingTrust extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="global-container" style={{backgroundAttachment:"fixed"}}> 
+            <div className="back-button">
+              <Link  to="/individualuser/home"><FaArrowLeft /></Link>
+            </div>
+            <div className="container">
                 <h3>Living Trusts Table</h3>
                 <table className="table">
                     {/* Header */}
@@ -107,6 +113,7 @@ export default class ViewLivingTrust extends React.Component {
                         );
                     })}
                 </table>
+            </div>
             </div>
         );
     }

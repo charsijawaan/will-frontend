@@ -8,7 +8,7 @@ const Input = ({ name, label, error, ...rest }) => {
           <label htmlFor={name}>{label}</label>
         </div>
         <div className="col-md-8">
-          <input {...rest} name={name} id={name} className="form-control" />
+          <input {...rest} name={name} id={name} className="login__input form-control" />
         </div>
       </div>
 

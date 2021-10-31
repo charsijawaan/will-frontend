@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import * as auth from "../../services/adminService";
 import { CButton, CDataTable , CCollapse, CCardBody} from "@coreui/react";
-
+import "../Styling/table.css"
+import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import {toast} from 'react-toastify'
 import { Modal, Button , Row, Col} from "react-bootstrap";
@@ -82,19 +83,19 @@ const BalanceRequests = () => {
     }
   };
   return (
-    <>
+    <div className="global-container bg-fixed" style={{backgroundAttachment:"fixed"}}>
+    <div className="back-button">
+      <Link to="/adminhome"><FaArrowLeft /></Link>
+    </div>
     <div className="container">
-    <h5>Showing list of balance requests</h5>
+    <h4>Balance requests</h4>
      
       <CDataTable
         items={arr[1]}
         fields={fields}
         columnFilter
         tableFilter
-        footer
-        itemsPerPageSelect
-        itemsPerPage={5}
-        hover
+        itemsPerPage={10}
         sorter
         pagination
         scopedSlots={{
@@ -195,7 +196,7 @@ const BalanceRequests = () => {
         </Modal>
       </>
     )}
-    </>
+    </div>
   );
 };
 
